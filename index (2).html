@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christ and Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+ :root {
+ --sage: #6B8F6B;
+ --sage-dark: #4A5E4A;
+ --sage-light: #C8D8C8;
+ --cream: #FAF7F0;
+ --cream-alt: #F0EDE4;
+ --brown: #7B4F2E;
+ --brown-light: #C9A484;
+ --lime: #A8C84A;
+ --white: #FFFFFF;
+ --text-dark: #2C2C2C;
+ }
+
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+
+ html { scroll-behavior: smooth; }
+
+ body {
+ font-family: 'Montserrat', sans-serif;
+ background: var(--cream);
+ color: var(--text-dark);
+ overflow-x: hidden;
+ }
+
+ /* ── NAV ── */
+ nav {
+ position: fixed;
+ top: 0; left: 0; right: 0;
+ background: var(--sage);
+ z-index: 100;
+ padding: 0 48px;
+ height: 72px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+ }
+
+.nav-logo { text-decoration: none;
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 28px;
+ font-weight: 600;
+ color: var(--cream);
+ letter-spacing: 1px;
+ font-style: italic;
+ }
+
+.nav-logo span {
+ color: var(--brown-light);
+ }
+
+.nav-links {
+ display: flex;
+ gap: 36px;
+ list-style: none;
+ }
+
+.nav-links a {
+ color: var(--cream);
+ text-decoration: none;
+ font-size: 11px;
+ font-weight: 500;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ opacity: 0.9;
+ transition: opacity 0.2s;
+ }
+
+.nav-links a:hover { opacity: 1; }
+
+.nav-btn {
+ background: var(--lime);
+ color: var(--sage-dark)!important;
+ padding: 10px 22px;
+ border-radius: 50px;
+ font-weight: 600!important;
+ opacity: 1!important;
+ }
+
+ /* ── HERO ── */
+.hero {
+ min-height: 100vh;
+ background: var(--sage);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ text-align: center;
+ padding: 120px 48px 80px;
+ position: relative;
+ overflow: hidden;
+ }
+
+.hero::before {
+ content: '';
+ position: absolute;
+ inset: 0;
+ background: radial-gradient(ellipse at 30% 50%, rgba(168,200,74,0.08) 0%, transparent 60%),
+ radial-gradient(ellipse at 70% 80%, rgba(123,79,46,0.1) 0%, transparent 50%);
+ }
+
+.hero-eyebrow {
+ font-size: 11px;
+ letter-spacing: 4px;
+ text-transform: uppercase;
+ color: var(--lime);
+ font-weight: 500;
+ margin-bottom: 24px;
+ animation: fadeUp 0.8s ease both;
+ }
+
+.hero-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: clamp(56px, 8vw, 100px);
+ font-weight: 600;
+ color: var(--cream);
+ line-height: 1;
+ letter-spacing: -1px;
+ margin-bottom: 8px;
+ animation: fadeUp 0.8s 0.1s ease both;
+ }
+
+.hero-title.dot {
+ color: var(--brown-light);
+ }
+
+.hero-subtitle {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: clamp(18px, 2.5vw, 26px);
+ color: var(--cream);
+ opacity: 0.85;
+ font-style: italic;
+ font-weight: 300;
+ max-width: 560px;
+ line-height: 1.6;
+ margin: 24px auto 48px;
+ animation: fadeUp 0.8s 0.2s ease both;
+ }
+
+.hero-btn {
+ display: inline-block;
+ background: transparent;
+ border: 1.5px solid var(--cream);
+ color: var(--cream);
+ padding: 16px 44px;
+ border-radius: 50px;
+ font-size: 11px;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ font-weight: 500;
+ text-decoration: none;
+ transition: all 0.3s;
+ animation: fadeUp 0.8s 0.3s ease both;
+ }
+
+.hero-btn:hover {
+ background: var(--cream);
+ color: var(--sage-dark);
+ }
+
+.hero-scroll {
+ position: absolute;
+ bottom: 40px;
+ left: 50%;
+ transform: translateX(-50%);
+ color: var(--cream);
+ opacity: 0.5;
+ font-size: 10px;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ animation: bounce 2s infinite;
+ }
+
+ /* ── ABOUT STRIP ── */
+.about-strip {
+ background: var(--cream);
+ padding: 100px 48px;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 80px;
+ align-items: center;
+ max-width: 1200px;
+ margin: 0 auto;
+ }
+
+.about-image {
+ position: relative;
+ }
+
+.about-image-main {
+ width: 100%;
+ aspect-ratio: 4/5;
+ background: var(--sage);
+ border-radius: 4px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ overflow: hidden;
+ }
+
+.about-image-accent {
+ position: absolute;
+ bottom: -24px;
+ right: -24px;
+ width: 60%;
+ aspect-ratio: 1;
+ background: var(--cream-alt);
+ border: 2px solid var(--sage-light);
+ border-radius: 4px;
+ z-index: -1;
+ }
+
+.logo-display {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 52px;
+ font-weight: 600;
+ color: var(--cream);
+ font-style: italic;
+ text-align: center;
+ line-height: 1.1;
+ padding: 40px;
+ }
+
+.logo-display.coffee-o {
+ color: var(--brown-light);
+ }
+
+.about-tag {
+ display: inline-block;
+ background: var(--sage-light);
+ color: var(--sage-dark);
+ font-size: 10px;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ padding: 8px 16px;
+ border-radius: 50px;
+ margin-bottom: 20px;
+ font-weight: 600;
+ }
+
+.about-heading {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: clamp(36px, 4vw, 52px);
+ font-weight: 600;
+ color: var(--sage-dark);
+ line-height: 1.15;
+ margin-bottom: 24px;
+ }
+
+.about-text {
+ font-size: 15px;
+ line-height: 1.9;
+ color: #555;
+ font-weight: 300;
+ margin-bottom: 16px;
+ }
+
+.about-verse {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 18px;
+ font-style: italic;
+ color: var(--brown);
+ border-left: 3px solid var(--brown-light);
+ padding-left: 20px;
+ margin: 32px 0;
+ line-height: 1.6;
+ }
+
+ /* ── PROGRAMS ── */
+.programs {
+ background: var(--sage);
+ padding: 100px 48px;
+ text-align: center;
+ }
+
+.section-eyebrow {
+ font-size: 10px;
+ letter-spacing: 4px;
+ text-transform: uppercase;
+ color: var(--lime);
+ font-weight: 600;
+ margin-bottom: 16px;
+ }
+
+.section-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: clamp(36px, 4vw, 56px);
+ font-weight: 600;
+ color: var(--cream);
+ margin-bottom: 60px;
+ line-height: 1.1;
+ }
+
+.programs-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 24px;
+ max-width: 1100px;
+ margin: 0 auto;
+ }
+
+.program-card {
+ background: rgba(250,247,240,0.08);
+ border: 1px solid rgba(250,247,240,0.15);
+ border-radius: 4px;
+ padding: 48px 36px;
+ text-align: left;
+ transition: all 0.3s;
+ backdrop-filter: blur(10px);
+ }
+
+.program-card:hover {
+ background: rgba(250,247,240,0.12);
+ transform: translateY(-4px);
+ }
+
+.program-icon {
+ font-size: 36px;
+ margin-bottom: 20px;
+ display: block;
+ }
+
+.program-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 26px;
+ font-weight: 600;
+ color: var(--cream);
+ margin-bottom: 16px;
+ font-style: italic;
+ }
+
+.program-text {
+ font-size: 13px;
+ line-height: 1.9;
+ color: rgba(250,247,240,0.75);
+ font-weight: 300;
+ margin-bottom: 28px;
+ }
+
+.program-btn {
+ display: inline-block;
+ font-size: 10px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: var(--lime);
+ text-decoration: none;
+ font-weight: 600;
+ border-bottom: 1px solid var(--lime);
+ padding-bottom: 2px;
+ transition: opacity 0.2s;
+ }
+
+.program-btn:hover { opacity: 0.7; }
+
+ /* ── VALUES ── */
+.values {
+ background: var(--cream);
+ padding: 100px 48px;
+ text-align: center;
+ }
+
+.values.section-title { color: var(--sage-dark); }
+
+.values-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 32px;
+ max-width: 1100px;
+ margin: 0 auto;
+ }
+
+.value-card {
+ padding: 40px 24px;
+ border-top: 2px solid var(--sage-light);
+ text-align: center;
+ transition: border-color 0.3s;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ }
+
+.value-card:hover { border-color: var(--sage); }
+
+.value-icon {
+ font-size: 32px;
+ margin-bottom: 20px;
+ display: block;
+ }
+
+.value-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 22px;
+ font-weight: 600;
+ color: var(--sage-dark);
+ margin-bottom: 12px;
+ }
+
+.value-text {
+ font-size: 13px;
+ line-height: 1.8;
+ color: #777;
+ font-weight: 300;
+ }
+
+ /* ── HOW IT WORKS ── */
+.how {
+ background: var(--cream-alt);
+ padding: 100px 48px;
+ text-align: center;
+ }
+
+.how .section-title { color: var(--sage-dark); }
+.how.section-eyebrow { color: var(--brown); }
+
+.steps-grid {
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+ gap: 40px;
+ max-width: 1100px;
+ margin: 0 auto;
+ }
+
+.step {
+ text-align: center;
+ padding: 20px;
+ }
+
+.step-number {
+ width: 56px;
+ height: 56px;
+ border-radius: 50%;
+ background: var(--sage);
+ color: var(--cream);
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 24px;
+ font-weight: 600;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ margin: 0 auto 20px;
+ }
+
+.step-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 20px;
+ font-weight: 600;
+ color: var(--sage-dark);
+ margin-bottom: 12px;
+ }
+
+.step-text {
+ font-size: 13px;
+ line-height: 1.8;
+ color: #777;
+ font-weight: 300;
+ }
+
+.step-link {
+ color: var(--brown);
+ font-weight: 500;
+ text-decoration: underline;
+ cursor: pointer;
+ }
+
+ /* ── TESTIMONIALS ── */
+.testimonials {
+ background: var(--sage);
+ padding: 100px 48px;
+ text-align: center;
+ }
+
+.testimonials-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 24px;
+ max-width: 1100px;
+ margin: 0 auto;
+ }
+
+.testimonial-card {
+ background: rgba(250,247,240,0.08);
+ border: 1px solid rgba(250,247,240,0.12);
+ border-radius: 4px;
+ padding: 40px 32px;
+ text-align: left;
+ }
+
+.testimonial-quote {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 52px;
+ color: var(--lime);
+ line-height: 1;
+ margin-bottom: 12px;
+ opacity: 0.6;
+ }
+
+.testimonial-text {
+ font-size: 14px;
+ line-height: 1.9;
+ color: rgba(250,247,240,0.85);
+ font-weight: 300;
+ font-style: italic;
+ margin-bottom: 24px;
+ }
+
+.testimonial-name {
+ font-size: 11px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: var(--lime);
+ font-weight: 600;
+ }
+
+ /* ── CONTACT ── */
+.contact {
+ background: var(--cream);
+ padding: 100px 48px;
+ text-align: center;
+ }
+
+.contact.section-title { color: var(--sage-dark); }
+
+.contact-sub {
+ font-size: 15px;
+ color: #777;
+ font-weight: 300;
+ max-width: 500px;
+ margin: 0 auto 60px;
+ line-height: 1.8;
+ }
+
+.contact-form {
+ max-width: 600px;
+ margin: 0 auto;
+ text-align: left;
+ }
+
+.form-row {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 20px;
+ margin-bottom: 20px;
+ }
+
+.form-group {
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ margin-bottom: 20px;
+ }
+
+.form-group label {
+ font-size: 10px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ color: var(--sage-dark);
+ font-weight: 600;
+ }
+
+.form-group input,
+.form-group textarea {
+ background: transparent;
+ border: none;
+ border-bottom: 1.5px solid var(--sage-light);
+ padding: 12px 0;
+ font-family: 'Montserrat', sans-serif;
+ font-size: 14px;
+ color: var(--text-dark);
+ font-weight: 300;
+ outline: none;
+ transition: border-color 0.2s;
+ width: 100%;
+ }
+
+.form-group input:focus,
+.form-group textarea:focus {
+ border-color: var(--sage);
+ }
+
+.form-group textarea { resize: none; height: 120px; }
+
+.form-submit {
+ background: var(--sage);
+ color: var(--cream);
+ border: none;
+ padding: 18px 48px;
+ border-radius: 50px;
+ font-family: 'Montserrat', sans-serif;
+ font-size: 11px;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ font-weight: 600;
+ cursor: pointer;
+ transition: all 0.3s;
+ width: 100%;
+ margin-top: 12px;
+ }
+
+.form-submit:hover { background: var(--sage-dark); }
+
+ /* ── FOOTER ── */
+ footer {
+ background: var(--sage-dark);
+ padding: 60px 48px 40px;
+ text-align: center;
+ }
+
+.footer-logo {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 36px;
+ font-weight: 600;
+ color: var(--cream);
+ font-style: italic;
+ margin-bottom: 24px;
+ }
+
+.footer-links {
+ display: flex;
+ justify-content: center;
+ gap: 32px;
+ margin-bottom: 32px;
+ flex-wrap: wrap;
+ }
+
+.footer-links a {
+ color: rgba(250,247,240,0.6);
+ text-decoration: none;
+ font-size: 11px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ font-weight: 400;
+ transition: color 0.2s;
+ }
+
+.footer-links a:hover { color: var(--cream); }
+
+.footer-socials {
+ display: flex;
+ justify-content: center;
+ gap: 20px;
+ margin-bottom: 40px;
+ }
+
+.social-icon {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ border: 1px solid rgba(250,247,240,0.2);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ color: var(--cream);
+ font-size: 14px;
+ text-decoration: none;
+ transition: all 0.2s;
+ }
+
+.social-icon:hover {
+ border-color: var(--lime);
+ color: var(--lime);
+ }
+
+.footer-email {
+ font-size: 13px;
+ color: rgba(250,247,240,0.5);
+ margin-bottom: 8px;
+ }
+
+.footer-copy {
+ font-size: 11px;
+ color: rgba(250,247,240,0.3);
+ letter-spacing: 1px;
+ }
+
+.footer-verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--cream);
+    margin-bottom: 32px;
+    font-weight: 600;
+    opacity: 0.95;
+  }
+
+ /* ── DONATE BANNER ── */
+.donate-banner {
+ background: var(--brown);
+ padding: 60px 48px;
+ text-align: center;
+ }
+
+.donate-title {
+ font-family: 'Cormorant Garamond', serif;
+ font-size: 36px;
+ font-weight: 600;
+ color: var(--cream);
+ margin-bottom: 16px;
+ font-style: italic;
+ }
+
+.donate-text {
+ font-size: 14px;
+ color: rgba(250,247,240,0.8);
+ font-weight: 300;
+ max-width: 500px;
+ margin: 0 auto 32px;
+ line-height: 1.8;
+ }
+
+.donate-btn {
+ display: inline-block;
+ background: var(--cream);
+ color: var(--brown);
+ padding: 16px 44px;
+ border-radius: 50px;
+ font-size: 11px;
+ letter-spacing: 3px;
+ text-transform: uppercase;
+ font-weight: 600;
+ text-decoration: none;
+ transition: all 0.3s;
+ }
+
+.donate-btn:hover {
+ background: var(--lime);
+ color: var(--sage-dark);
+ }
+
+ /* ── ANIMATIONS ── */
+ @keyframes fadeUp {
+ from { opacity: 0; transform: translateY(20px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ @keyframes bounce {
+ 0%, 100% { transform: translateX(-50%) translateY(0); }
+ 50% { transform: translateX(-50%) translateY(8px); }
+ }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+ <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+ <ul class="nav-links">
+ <li><a href="christandcoffee_about_FIX.html">About</a></li>
+ <li><a href="programs_events_7.html">Programs & Events</a></li>
+ <li><a href="kingdom-business.html">Kingdom Business</a></li>
+ <li><a href="index.html#contact">Contact</a></li>
+ <li><a href="signup_13(1).html" class="nav-btn">Join Us</a></li>
+ </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+ <p class="hero-eyebrow">Women's Discipleship Community <svg style="display:inline-block;vertical-align:middle;margin-left:6px;" width="14" height="18" viewBox="0 0 14 18" xmlns="http://www.w3.org/2000/svg">
+ <rect x="5.5" y="0" width="3" height="18" rx="1" fill="#A8C84A"/>
+ <rect x="0" y="5" width="14" height="3" rx="1" fill="#A8C84A"/>
+</svg></p>
+ <h1 class="hero-title">Faith<span class="dot">.</span>Fellowship<span class="dot">.</span>Coffee</h1>
+ <p class="hero-subtitle">A women's discipleship community where faith meets real life. You belong here.</p>
+ <a href="#signup" class="hero-btn">Join Our Community</a>
+ <div class="hero-scroll">Scroll </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section class="about-strip" id="about">
+ <div class="about-image">
+ <div class="about-image-main"><img src="Christ_and_C_ffee__600_x_750_px_.png" alt="Christ and Coffee Logo" style="width:100%;height:100%;object-fit:cover;border-radius:4px;"></div>
+ <div class="about-image-accent"></div>
+ </div>
+ <div class="about-content">
+  <span class="about-tag">Our Heartbeat</span>
+  <h2 class="about-heading">Faith. Fellowship. Coffee.</h2>
+  <p class="about-text">Three simple things that changed everything. Faith that anchors us. Fellowship that sustains us. And coffee that reminds us to slow down, sit together and actually do life with one another.</p>
+  <p class="about-text">Christ and Coffee is what happens when women stop pretending they have it all together and start showing up for each other — open Bibles, honest conversations and yes, always a warm cup of coffee in hand.</p>
+  <blockquote class="about-verse">"And let us consider how we may spur one another on toward love and good deeds, not giving up meeting together." — Hebrews 10:24-25</blockquote>
+  <p style="font-size:13px;color:#888;font-weight:300;">Based in Connecticut — but building a community beyond borders. <svg style="display:inline-block;vertical-align:middle;margin-left:6px;" width="14" height="18" viewBox="0 0 14 18" xmlns="http://www.w3.org/2000/svg">
+  <rect x="5.5" y="0" width="3" height="18" rx="1" fill="#A8C84A"/>
+  <rect x="0" y="5" width="14" height="3" rx="1" fill="#A8C84A"/>
+</svg></p>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+ <p class="section-eyebrow">What We Offer</p>
+ <h2 class="section-title">Our Programs</h2>
+ <div class="programs-grid">
+ <div class="program-card">
+ <span class="program-icon"><svg width="64" height="52" viewBox="0 0 64 52" xmlns="http://www.w3.org/2000/svg">
+ <!-- Shadow -->
+ <ellipse cx="32" cy="51" rx="26" ry="2.5" fill="#00000018"/>
+ <!-- Left page -->
+ <path d="M5 6 C5 4 7 3 9 3 L32 5 L32 47 L9 45 C7 45 5 43 5 41 Z" fill="#FAF7F0"/>
+ <path d="M5 6 C5 4 7 3 9 3 L32 5 L32 47 L9 45 C7 45 5 43 5 41 Z" stroke="#C8BFA0" stroke-width="0.8"/>
+ <!-- Right page -->
+ <path d="M59 6 C59 4 57 3 55 3 L32 5 L32 47 L55 45 C57 45 59 43 59 41 Z" fill="#FAF7F0"/>
+ <path d="M59 6 C59 4 57 3 55 3 L32 5 L32 47 L55 45 C57 45 59 43 59 41 Z" stroke="#C8BFA0" stroke-width="0.8"/>
+ <!-- Page shadow center -->
+ <rect x="29" y="3" width="6" height="44" fill="#E8E0C8" opacity="0.5"/>
+ <!-- Spine -->
+ <rect x="30" y="3" width="4" height="44" rx="1" fill="#7B4F2E"/>
+ <!-- Left page lines -->
+ <line x1="11" y1="13" x2="27" y2="13" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="17" x2="27" y2="17" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="21" x2="27" y2="21" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="25" x2="27" y2="25" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="29" x2="27" y2="29" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="33" x2="23" y2="33" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <!-- Right page lines -->
+ <line x1="37" y1="13" x2="53" y2="13" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="17" x2="53" y2="17" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="21" x2="53" y2="21" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="25" x2="53" y2="25" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="29" x2="53" y2="29" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="33" x2="49" y2="33" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <!-- Small cross right page -->
+ <rect x="44" y="36" width="3" height="8" rx="0.8" fill="#7B4F2E" opacity="0.7"/>
+ <rect x="41" y="38.5" width="9" height="3" rx="0.8" fill="#7B4F2E" opacity="0.7"/>
+ <!-- Red bookmark -->
+ <path d="M50 3 L50 19 L48 17 L46 19 L46 3 Z" fill="#C0392B" opacity="0.85"/>
+ <!-- Cover peek at top -->
+ <path d="M9 3 L32 3 L32 6 L9 6 Z" fill="#6B8F6B" opacity="0.2"/>
+ <path d="M55 3 L32 3 L32 6 L55 6 Z" fill="#6B8F6B" opacity="0.2"/>
+</svg></span>
+ <rect x="6" y="4" width="24" height="32" rx="2" fill="#4A5E4A"/>
+ <rect x="6" y="4" width="5" height="32" rx="1" fill="#6B8F6B"/>
+ <rect x="11" y="4" width="1" height="32" fill="#C8D8C8" opacity="0.4"/>
+ <line x1="14" y1="14" x2="26" y2="14" stroke="#FAF7F0" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+ <line x1="14" y1="18" x2="26" y2="18" stroke="#FAF7F0" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+ <line x1="14" y1="22" x2="22" y2="22" stroke="#FAF7F0" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+ <path d="M18 26 L20 24 L22 26" stroke="#C9A484" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+</svg></span>
+ <h3 class="program-title">Bible Study Series</h3>
+ <p class="program-text">Deep dive discussions into the Word of God. We study women of the Bible, books of scripture, and real life application — all in a safe, honest, and welcoming space. Meetings twice monthly.</p>
+ <a href="#" class="program-btn">View Current Series </a>
+ </div>
+ <div class="program-card">
+ <span class="program-icon">🌿</span>
+ <h3 class="program-title">Temple Wellness</h3>
+ <p class="program-text">A 6-week faith based wellness program covering physical health, mental health, and nutrition. Because stewarding our bodies is an act of worship. — 1 Corinthians 6:19</p>
+ <a href="#" class="program-btn">Learn More </a>
+ </div>
+ <div class="program-card">
+ <span class="program-icon">🎙️</span>
+ <h3 class="program-title">The Conversations</h3>
+ <p class="program-text">Deeper conversations about faith, life, discipleship and everything in between. Our podcast is coming soon and trust us — you don't want to miss it.</p>
+ <a href="#" class="program-btn">Stay Tuned </a>
+ </div>
+ </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+ <p class="section-eyebrow" style="color:var(--brown);">What We Stand For</p>
+ <h2 class="section-title" style="color:var(--sage-dark);">Our Core Values</h2>
+ <div class="values-grid">
+ <div class="value-card">
+ <span class="value-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 44 Q26 26 46 44Z" fill="#C8D8C8"/><rect x="22" y="6" width="8" height="30" rx="2" fill="#7B4F2E"/><rect x="12" y="14" width="28" height="8" rx="2" fill="#7B4F2E"/></svg></span>
+ <h3 class="value-title">Biblical Truth</h3>
+ <p class="value-text">Everything we do is rooted in the Word of God. We study it, live it, and grow through it together.</p>
+ </div>
+ <div class="value-card">
+ <span class="value-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 8 C15 8 14 5 16 4" stroke="#C9A484" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M22 9 C22 9 21 6 23 5" stroke="#C9A484" stroke-width="2" stroke-linecap="round" fill="none"/><path d="M10 16 H36 L33 42 C33 43.5 31.5 44 30 44 H16 C14.5 44 13 43.5 13 42 Z" fill="#C0392B"/><path d="M36 20 H40 C43 20 45 23 45 26 C45 29 43 32 40 32 H36" stroke="#C0392B" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="10" y="13" width="26" height="5" rx="2.5" fill="#7B4F2E"/><path d="M23 26 C23 26 20 23 18 24.5 C16 26 16 29 20 31.5 L23 34 L26 31.5 C30 29 30 26 28 24.5 C26 23 23 26 23 26Z" fill="#FAF7F0"/></svg></span>
+ <h3 class="value-title">Authenticity</h3>
+ <p class="value-text">No masks. No performance. Just real women having real conversations about real life and faith.</p>
+ </div>
+ <div class="value-card">
+ <span class="value-icon"><img src="1774478000415_image.png" alt="Women Community" style="width:100%;max-width:220px;height:auto;display:block;margin:0 auto;border-radius:8px;"></span>
+ <h3 class="value-title">Community</h3>
+ <p class="value-text">We believe women grow deeper when they do life together. You were never meant to walk this journey alone.</p>
+ </div>
+ <div class="value-card">
+ <span class="value-icon"><svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 44 L26 22" stroke="#6B8F6B" stroke-width="3" stroke-linecap="round"/><path d="M26 22 C26 22 18 18 14 10 C20 10 26 16 26 22Z" fill="#6B8F6B"/><path d="M26 28 C26 28 34 24 38 16 C32 16 26 22 26 28Z" fill="#A8C84A"/><ellipse cx="26" cy="45" rx="6" ry="2" fill="#C8D8C8"/></svg></span>
+ <h3 class="value-title">Growth</h3>
+ <p class="value-text">We celebrate progress over perfection. Every woman here is a work in progress — and that's exactly the point.</p>
+ </div>
+ </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+ <p class="section-eyebrow">Getting Started</p>
+ <h2 class="section-title">How It Works</h2>
+ <div class="steps-grid">
+ <div class="step">
+ <div class="step-number">1</div>
+ <h3 class="step-title">Join the Community</h3>
+ <p class="step-text">Fill out our <span class="step-link">member sign up form</span> to get connected. We'll make sure you never miss an event, study, or birthday shoutout!</p>
+ </div>
+ <div class="step">
+ <div class="step-number">2</div>
+ <h3 class="step-title">Show Up</h3>
+ <p class="step-text">Come to a <span class="step-link">Christ and Coffee meetup</span>! We gather twice a month for deep discussion, real talk, and good coffee. No perfect faith required.</p>
+ </div>
+ <div class="step">
+ <div class="step-number">3</div>
+ <h3 class="step-title">Go Deeper</h3>
+ <p class="step-text">Get involved in our <span class="step-link">programs</span> — Temple Wellness, Bible Study Series, special events and more. There's always a place for you.</p>
+ </div>
+ <div class="step">
+ <div class="step-number">4</div>
+ <h3 class="step-title">Invite Someone</h3>
+ <p class="step-text">Know a woman who needs community? <span class="step-link">Bring her!</span> Christ and Coffee grows one invitation at a time. Every woman belongs here.</p>
+ </div>
+ </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+ <p class="section-eyebrow">Community Love</p>
+ <h2 class="section-title">Real Women. Real Faith. Real Community.</h2>
+ <div class="testimonials-grid">
+ <div class="testimonial-card">
+ <div class="testimonial-quote">"</div>
+ <p class="testimonial-text">Christ and Coffee has given me a safe place to be honest about my faith journey. I've never felt judged — only loved and encouraged to keep growing.</p>
+ <p class="testimonial-name">— C<span style="font-weight:700;font-size:1.1em;vertical-align:middle;">✝</span>C Member</p>
+ </div>
+ <div class="testimonial-card">
+ <div class="testimonial-quote">"</div>
+ <p class="testimonial-text">I came not knowing anyone and left feeling like I'd found my people. The discussions are real, the women are genuine, and the coffee is always good!</p>
+ <p class="testimonial-name">— C<span style="font-weight:700;font-size:1.1em;vertical-align:middle;">✝</span>C Member</p>
+ </div>
+ <div class="testimonial-card">
+ <div class="testimonial-quote">"</div>
+ <p class="testimonial-text">Temple Wellness changed how I see my body. I finally understand that taking care of myself IS an act of worship. This community is truly life-changing.</p>
+ <p class="testimonial-name">— Temple Wellness Participant</p>
+ </div>
+ </div>
+</section>
+
+<!-- DONATE BANNER -->
+<section class="donate-banner">
+ <h2 class="donate-title">Sow Into C<span style="color:var(--cream);font-weight:700;font-size:1.3em;hori-align:middle;"><svg style="display:inline-block;vertical-align:middle;margin:0 2px;" width="14" height="18" viewBox="0 0 14 18" xmlns="http://www.w3.org/2000/svg"><rect x="5.5" y="0" width="3" height="18" rx="1" fill="#A8C84A"/><rect x="0" y="5" width="14" height="3" rx="1" fill="#A8C84A"/></svg></span>C Ministry</h2>
+ <p class="donate-text">Christ and Coffee has always been free and always will be. But if God puts it on your heart to help us grow and reach more women — we'd be so grateful.</p>
+ <a href="#" class="donate-btn">Support C<span style="color:var(--brown);font-weight:700;font-size:1.1em;vertical-align:middle;line-height:1;"><svg style="display:inline-block;vertical-align:middle;margin:0 2px;" width="14" height="18" viewBox="0 0 14 18" xmlns="http://www.w3.org/2000/svg"><rect x="5.5" y="0" width="3" height="18" rx="1" fill="#A8C84A"/><rect x="0" y="5" width="14" height="3" rx="1" fill="#A8C84A"/></svg></span>C</a>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+ <p class="section-eyebrow" style="color:var(--brown);">Get In Touch</p>
+ <h2 class="section-title">We'd Love to Hear From You</h2>
+ <p class="contact-sub">Whether you have a question, want to get involved, or just want to say hi — our door is always open.</p>
+ <form class="contact-form">
+ <div class="form-row">
+ <div class="form-group">
+ <label>First Name</label>
+ <input type="text" placeholder="Sarah">
+ </div>
+ <div class="form-group">
+ <label>Last Name</label>
+ <input type="text" placeholder="Johnson">
+ </div>
+ </div>
+ <div class="form-group">
+ <label>Email Address</label>
+ <input type="email" placeholder="hello@email.com">
+ </div>
+ <div class="form-group">
+ <label>Message</label>
+ <textarea placeholder="What's on your heart?"></textarea>
+ </div>
+ <button type="submit" class="form-submit">Send Message</button>
+ </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+ <div class="footer-logo">Christ and Coffee</div>
+ <p class="footer-verse" style="font-weight:700;opacity:0.9;">"Charm is deceptive, and beauty is fleeting; but a woman who fears the LORD is to be praised." — Proverbs 31:30</p>
+ <div class="footer-links">
+ <a href="index.html">Home</a>
+ <a href="christandcoffee_about_FIX.html">About</a>
+ <a href="programs_events_7.html">Programs</a>
+ <a href="programs_events_7.html">Programs & Events</a>
+ <a href="kingdom-business.html">Kingdom Business</a>
+ <a href="merch.html">Merch</a>
+ <a href="donate_9.html">Donate</a>
+ <a href="index.html#contact">Contact</a>
+ </div>
+ <div class="footer-socials">
+ <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+ <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+ </div>
+ <p class="footer-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a4ccc1c8c8cbe4c7ccd6cdd7d0c5cac0c7cbc2c2c1c18acac1d0">[email&#160;protected]</a></p>
+ <p class="footer-copy">© 2025 Christ and Coffee LLC · Connecticut · All Rights Reserved</p>
+ <div style="margin-top:16px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;">
+ <a href="privacy_1.html" style="color:rgba(250,247,240,0.4);font-size:10px;letter-spacing:1px;text-decoration:none;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(250,247,240,0.8)'" onmouseout="this.style.color='rgba(250,247,240,0.4)'">Privacy Policy</a>
+ <a href="accessibility_3(1).html" style="color:rgba(250,247,240,0.4);font-size:10px;letter-spacing:1px;text-decoration:none;text-transform:uppercase;transition:color 0.2s;" onmouseover="this.style.color='rgba(250,247,
