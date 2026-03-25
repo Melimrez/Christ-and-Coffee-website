@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibility Statement — Christ and Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+ :root {
+ --sage: #6B8F6B;
+ --sage-dark: #4A5E4A;
+ --sage-light: #C8D8C8;
+ --cream: #FAF7F0;
+ --cream-alt: #F0EDE4;
+ --brown: #7B4F2E;
+ --brown-light: #C9A484;
+ --lime: #A8C84A;
+ --white: #FFFFFF;
+ --text-dark: #2C2C2C;
+ }
+
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ html { scroll-behavior: smooth; }
+ body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text-dark); }
+
+ nav {
+ position: fixed; top: 0; left: 0; right: 0;
+ background: var(--sage); z-index: 100;
+ padding: 0 48px; height: 72px;
+ display: flex; align-items: center; justify-content: space-between;
+ box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+ }
+.nav-logo { text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--cream); letter-spacing: 1px; font-style: italic; }
+.nav-logo span { color: var(--brown-light); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { color: var(--cream); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.2s; }
+.nav-links a:hover { opacity: 1; }
+.nav-btn { background: var(--lime); color: var(--sage-dark)!important; padding: 10px 22px; border-radius: 50px; font-weight: 600!important; opacity: 1!important; }
+
+.page-hero { background: var(--sage); padding: 160px 48px 80px; text-align: center; }
+.page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 72px); font-weight: 600; color: var(--cream); margin-bottom: 16px; }
+.page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--cream); opacity: 0.8; font-style: italic; }
+
+.content { max-width: 800px; margin: 0 auto; padding: 80px 48px; }
+
+.updated { font-size: 12px; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--sage-light); }
+
+ h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--sage-dark); margin: 48px 0 16px; }
+
+ p { font-size: 15px; line-height: 1.9; color: #555; font-weight: 300; margin-bottom: 16px; }
+
+ ul { margin: 16px 0 16px 24px; }
+ ul li { font-size: 15px; line-height: 1.9; color: #555; font-weight: 300; margin-bottom: 8px; }
+
+.highlight-box { background: var(--sage-light); border-left: 4px solid var(--sage); padding: 24px 28px; border-radius: 4px; margin: 32px 0; }
+.highlight-box p { color: var(--sage-dark); font-weight: 400; margin: 0; }
+
+ a { color: var(--sage); text-decoration: underline; }
+
+ footer { background: var(--sage-dark); padding: 60px 48px 40px; text-align: center; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); font-style: italic; margin-bottom: 24px; }
+.footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+.footer-links a { color: rgba(250,247,240,0.6); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+.social-icon { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(250,247,240,0.2); display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+.social-icon:hover { border-color: var(--lime); color: var(--lime); }
+.footer-verse { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--cream); margin-bottom: 32px; font-weight: 600; opacity: 0.95; }
+.footer-email { font-size: 13px; color: rgba(250,247,240,0.5); margin-bottom: 8px; }
+.footer-copy { font-size: 11px; color: rgba(250,247,240,0.3); letter-spacing: 1px; }
+.footer-legal { margin-top: 16px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.footer-legal a { color: rgba(250,247,240,0.4); font-size: 10px; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(250,247,240,0.8); }
+</style>
+</head>
+<body>
+
+<nav>
+ <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+ <ul class="nav-links">
+ <li><a href="index.html">Home</a></li>
+ <li><a href="christandcoffee_about_FIX.html">About</a></li>
+ <li><a href="programs_events_7.html">Events</a></li>
+ <li><a href="programs_events_7.html">Programs</a></li>
+ <li><a href="kingdom-business.html">Kingdom Business</a></li>
+ <li><a href="signup_13(1).html" class="nav-btn">Join Us</a></li>
+ </ul>
+</nav>
+
+<section class="page-hero">
+ <h1 class="page-title">Accessibility Statement</h1>
+ <p class="page-subtitle">Everyone is welcome here </p>
+</section>
+
+<div class="content">
+ <p class="updated">Last Updated: March 2025</p>
+
+ <div class="highlight-box">
+ <p>Christ and Coffee LLC is committed to ensuring that our website and community are accessible and welcoming to everyone — regardless of ability, background, or circumstance. Just as every woman has a seat at our table, every visitor deserves full access to our digital home.</p>
+ </div>
+
+ <h2>Our Commitment</h2>
+ <p>We are actively working to ensure that christandcoffee.net meets or exceeds the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standards. These guidelines help make web content more accessible to people with disabilities including visual, auditory, physical, speech, cognitive, and neurological disabilities.</p>
+
+ <h2>What We Are Doing</h2>
+ <p>To improve accessibility across our website we are committed to the following:</p>
+ <ul>
+ <li><strong>Clear visual design</strong> — high contrast colors, readable fonts and clean layouts</li>
+ <li><strong>Descriptive image alt text</strong> — all images include descriptions for screen readers</li>
+ <li><strong>Keyboard navigation</strong> — our site can be navigated without a mouse</li>
+ <li><strong>Readable text</strong> — font sizes and spacing designed for easy reading</li>
+ <li><strong>Simple language</strong> — content written in plain, clear English</li>
+ <li><strong>Mobile friendly</strong> — our site works on all screen sizes and devices</li>
+ <li><strong>No flashing content</strong> — we avoid content that may trigger seizures</li>
+ </ul>
+
+ <h2>In-Person Accessibility</h2>
+ <p>Christ and Coffee is committed to being physically accessible as well. When planning events and meetups we prioritize venues that are:</p>
+ <ul>
+ <li>Wheelchair accessible</li>
+ <li>Easy to find and navigate</li>
+ <li>Comfortable and inclusive for all women</li>
+ </ul>
+ <p>If you have specific accessibility needs for any of our in-person events please reach out to us in advance at <a href="/cdn-cgi/l/email-protection#137b767f7f7c53707b617a6067727d77707c757576763d7d7667"><span class="__cf_email__" data-cfemail="741c1118181b34171c061d0700151a10171b121211115a1a1100">[email&#160;protected]</span></a> and we will do our best to accommodate you.</p>
+
+ <h2>Known Limitations</h2>
+ <p>While we strive for full accessibility we acknowledge that some areas of our website may still be improving. We are a small ministry team doing our best and we are committed to continual improvement. If you encounter any barriers please let us know.</p>
+
+ <h2>Feedback & Contact</h2>
+ <p>We welcome your feedback on the accessibility of christandcoffee.net. If you experience any difficulty accessing any part of our website or have suggestions for improvement please contact us:</p>
+ <p>
+ <strong>Christ and Coffee LLC</strong><br>
+ Connecticut<br>
+ Email: <a href="/cdn-cgi/l/email-protection#48202d242427082b203a213b3c29262c2b272e2e2d2d66262d3c"><span class="__cf_email__" data-cfemail="a5cdc0c9c9cae5c6cdd7ccd6d1c4cbc1c6cac3c3c0c08bcbc0d1">[email&#160;protected]</span></a>
+ </p>
+ <p>We aim to respond to accessibility feedback within 5 business days.</p>
+
+ <h2>Our Heart</h2>
+ <p>At Christ and Coffee we believe that every woman — regardless of ability, background, denomination or season of life — deserves to feel welcomed, valued and included. Accessibility is not just a legal requirement for us — it is an extension of our core value of community. You belong here. </p>
+
+</div>
+
+<footer>
+ <div class="footer-logo">Christ and Coffee</div>
+ <p class="footer-verse">"For God so loved the world that He gave His one and only Son, that whoever believes in Him shall not perish but have eternal life." — John 3:16</p>
+ <div class="footer-links">
+ <a href="index.html">Home</a>
+ <a href="christandcoffee_about_FIX.html">About</a>
+ <a href="programs_events_7.html">Programs</a>
+ <a href="programs_events_7.html">Events</a>
+ <a href="kingdom-business.html">Kingdom Business</a>
+ <a href="merch.html">Merch</a>
+ <a href="donate_9.html">Donate</a>
+ <a href="index.html#contact">Contact</a>
+ </div>
+ <div class="footer-socials">
+ <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+ <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+ </div>
+ <p class="footer-ema

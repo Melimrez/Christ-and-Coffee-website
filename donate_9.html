@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support the Ministry — Christ and Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --sage: #6B8F6B;
+    --sage-dark: #4A5E4A;
+    --sage-light: #C8D8C8;
+    --cream: #FAF7F0;
+    --cream-alt: #F0EDE4;
+    --brown: #7B4F2E;
+    --brown-light: #C9A484;
+    --lime: #A8C84A;
+    --text-dark: #2C2C2C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: var(--sage); z-index: 100;
+    padding: 0 48px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--cream); letter-spacing: 1px; font-style: italic; }
+  .nav-logo span { color: var(--brown-light); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--cream); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-btn { background: var(--lime); color: var(--sage-dark) !important; padding: 10px 22px; border-radius: 50px; font-weight: 600 !important; opacity: 1 !important; }
+
+  /* ── HERO ── */
+  .page-hero {
+    background: var(--sage); padding: 160px 48px 100px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(168,200,74,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(123,79,46,0.08) 0%, transparent 50%);
+  }
+  .page-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 20px; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 7vw, 90px); font-weight: 600; color: var(--cream); line-height: 1; margin-bottom: 24px; }
+  .page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 24px); color: var(--cream); opacity: 0.8; font-style: italic; font-weight: 300; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+  /* ── HEART SECTION ── */
+  .heart-section {
+    background: var(--cream);
+    padding: 100px 48px;
+    text-align: center;
+  }
+  .heart-inner {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .heart-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--brown); font-weight: 600; margin-bottom: 16px; }
+  .heart-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 32px;
+    line-height: 1.1;
+  }
+  .heart-text {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #555;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+  .heart-verse {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--brown);
+    border-left: 3px solid var(--brown-light);
+    padding-left: 24px;
+    text-align: left;
+    margin: 40px auto;
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  /* ── WHAT YOUR GIFT DOES ── */
+  .impact {
+    background: var(--sage);
+    padding: 100px 48px;
+    text-align: center;
+  }
+  .impact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 56px;
+  }
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .impact-card {
+    background: rgba(250,247,240,0.08);
+    border: 1px solid rgba(250,247,240,0.15);
+    border-radius: 4px;
+    padding: 40px 28px;
+    text-align: center;
+  }
+  .impact-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--lime);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .impact-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(250,247,240,0.5);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .impact-text {
+    font-size: 13px;
+    line-height: 1.8;
+    color: rgba(250,247,240,0.75);
+    font-weight: 300;
+  }
+
+  /* ── GIVE OPTIONS ── */
+  .give {
+    background: var(--cream-alt);
+    padding: 100px 48px;
+    text-align: center;
+  }
+  .give-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--brown); font-weight: 600; margin-bottom: 16px; }
+  .give-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 16px;
+  }
+  .give-subtitle {
+    font-size: 14px;
+    color: #777;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto 60px;
+    line-height: 1.8;
+  }
+  .give-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .give-card {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 48px 32px;
+    border: 1px solid var(--sage-light);
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .give-card .give-handle { flex: 1; }
+  .give-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(74,94,74,0.12); }
+  .give-icon { font-size: 40px; margin-bottom: 20px; display: block; }
+  .give-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .give-handle {
+    font-size: 13px;
+    color: #888;
+    font-weight: 300;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+  .give-btn {
+    display: inline-block;
+    background: var(--sage);
+    color: var(--cream);
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .give-btn:hover { background: var(--sage-dark); }
+
+  /* ── FREE ALWAYS ── */
+  .free-always {
+    background: var(--brown);
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .free-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .free-text {
+    font-size: 15px;
+    color: rgba(250,247,240,0.8);
+    font-weight: 300;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+
+  /* ── FOOTER ── */
+  footer { background: var(--sage-dark); padding: 60px 48px 40px; text-align: center; }
+  .amt-btn {
+    background: transparent;
+    border: 1.5px solid var(--sage-light);
+    border-radius: 50px;
+    padding: 10px 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--sage-dark);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .amt-btn:hover, .amt-btn.active {
+    background: var(--sage);
+    border-color: var(--sage);
+    color: var(--cream);
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); font-style: italic; margin-bottom: 24px; }
+  .footer-verse { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--cream); margin-bottom: 32px; font-weight: 600; opacity: 0.95; }
+  .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(250,247,240,0.6); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+  .social-icon { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(250,247,240,0.2); display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .social-icon:hover { border-color: var(--lime); color: var(--lime); }
+  .footer-email { font-size: 13px; color: rgba(250,247,240,0.5); margin-bottom: 8px; }
+  .footer-copy { font-size: 11px; color: rgba(250,247,240,0.3); letter-spacing: 1px; }
+  .footer-legal { margin-top: 16px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .footer-legal a { color: rgba(250,247,240,0.4); font-size: 10px; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-legal a:hover { color: rgba(250,247,240,0.8); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Christ and C<span>o</span>ffee</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="christandcoffee_about_FIX.html">About</a></li>
+    <li><a href="programs_events_7.html">Programs & Events</a></li>
+    <li><a href="#">Kingdom Business</a></li>
+    <li><a href="signup_13(1).html" class="nav-btn">Join Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <p class="page-eyebrow">Sow Into the Ministry</p>
+  <h1 class="page-title">Support C<span style="font-weight:700;font-size:0.85em;vertical-align:middle;">✝</span>C</h1>
+  <p class="page-subtitle">Christ and Coffee is free and always will be — but if God puts it on your heart to help us grow, we are so grateful</p>
+</section>
+
+<!-- HEART SECTION -->
+<section class="heart-section">
+  <div class="heart-inner">
+    <p class="heart-eyebrow">Why We Do This</p>
+    <h2 class="heart-title">Built on Grace.<br>Sustained by Community.</h2>
+    <p class="heart-text">Christ and Coffee has always been and will always be completely free to attend. No membership fees. No ticket prices for meetups. No cost to join. We believe that no woman should ever be kept from community because of finances.</p>
+    <p class="heart-text">But ministries have costs — venue fees, program materials, event supplies, website hosting and more. Every dollar sown into Christ and Coffee goes directly back into creating space for women to encounter God, grow in faith and find their people.</p>
+    <blockquote class="heart-verse">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." — 2 Corinthians 9:7</blockquote>
+    <p class="heart-text">If God is nudging your heart — give cheerfully. If not — come anyway. You are always welcome here.</p>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="impact">
+  <h2 class="impact-title">What Your Gift Makes Possible</h2>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-amount">$10</div>
+      <div class="impact-label">Covers</div>
+      <p class="impact-text">Study guides and printed materials for one Bible study series — helping every woman go deeper in the Word</p>
+    </div>
+    <div class="impact-card">
+      <div class="impact-amount">$25</div>
+      <div class="impact-label">Covers</div>
+      <p class="impact-text">Venue costs for one C✝C meetup — keeping our gatherings free and accessible for every woman who shows up</p>
+    </div>
+    <div class="impact-card">
+      <div class="impact-amount">$50</div>
+      <div class="impact-label">Covers</div>
+      <p class="impact-text">Event supplies and resources for a full program like Temple Wellness — equipping women in body, mind and spirit</p>
+    </div>
+  </div>
+</section>
+
+<!-- GIVE OPTIONS -->
+<section class="give">
+  <p class="give-eyebrow">Ways to Give</p>
+  <h2 class="give-title">Sow Into C<span style="font-weight:700;font-size:0.85em;vertical-align:middle;">✝</span>C</h2>
+  <p class="give-subtitle">Choose whichever platform works best for you. Every gift — big or small — is received with a grateful heart.</p>
+  <div class="give-grid">
+
+    <!-- PayPal -->
+    <div class="give-card">
+      <div style="margin-bottom:20px;">
+        <svg viewBox="0 0 24 24" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.554 9.488c.121.563.106 1.246-.04 2.051-.582 2.978-2.477 4.466-5.683 4.466h-.442a.666.666 0 0 0-.444.166.72.72 0 0 0-.239.428l-.041.189-.553 3.479-.021.151a.706.706 0 0 1-.247.424.666.666 0 0 1-.424.158H9.062a.395.395 0 0 1-.331-.158.477.477 0 0 1-.09-.375c.061-.37.148-.945.271-1.714l.12-.784.248-1.597.025-.178a.706.706 0 0 1 .247-.424.666.666 0 0 1 .424-.158h.442c.48 0 .94-.028 1.377-.082 2.395-.299 4.071-1.484 4.862-3.538.371-.976.489-1.852.384-2.685a3.75 3.75 0 0 0-.153-.682c.438.203.796.46 1.076.759.512.541.783 1.257.81 2.156z" fill="#009cde"/>
+          <path d="M18.263 7.135a5.5 5.5 0 0 0-.519-.11 9.94 9.94 0 0 0-1.604-.112h-4.962a.718.718 0 0 0-.437.148.706.706 0 0 0-.247.424l-1.056 6.69-.036.21a.72.72 0 0 1 .239-.428.666.666 0 0 1 .444-.166h.442c3.206 0 5.101-1.488 5.683-4.466.148-.805.161-1.488.04-2.051a2.942 2.942 0 0 0-.487-.951 3.31 3.31 0 0 0 .5.812z" fill="#012169"/>
+          <path d="M9.494 7.485a.706.706 0 0 1 .247-.424.718.718 0 0 1 .437-.148h4.962c.567 0 1.101.038 1.604.112.204.03.393.068.57.114l.234.072c.18.06.348.127.503.201.19.837.163 1.949-.384 3.285-.791 2.054-2.467 3.239-4.862 3.538a9.355 9.355 0 0 1-1.377.082h-.442a.666.666 0 0 0-.424.158.706.706 0 0 0-.247.424l-.025.178-.248 1.597-.12.784c-.123.769-.21 1.344-.271 1.714a.477.477 0 0 0 .09.375.395.395 0 0 0 .331.158H7.56a.562.562 0 0 1-.468-.195.618.618 0 0 1-.114-.489L8.438 8.1l.036-.21z" fill="#003087"/>
+        </svg>
+      </div>
+      <h3 class="give-name">PayPal</h3>
+      <p class="give-handle">Give securely through PayPal — no account required</p>
+      <a href="#" class="give-btn">Give via PayPal</a>
+    </div>
+
+    <!-- Venmo -->
+    <div class="give-card">
+      <div style="margin-bottom:20px;">
+        <svg viewBox="0 0 24 24" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.983 1.64c.65 1.073.943 2.18.943 3.574 0 4.457-3.803 10.24-6.886 14.303H5.028L2 2.382l5.783-.541 1.56 12.503c1.457-2.441 3.26-6.29 3.26-8.914 0-1.435-.244-2.41-.65-3.222l6.03-.568z" fill="#008CFF"/>
+        </svg>
+      </div>
+      <h3 class="give-name">Venmo</h3>
+      <p class="give-handle">Search <strong>@ChristandCoffee</strong> or click below</p>
+      <a href="#" class="give-btn">Give via Venmo</a>
+    </div>
+
+    <!-- Zelle -->
+    <div class="give-card">
+      <div style="margin-bottom:20px;">
+        <svg viewBox="0 0 60 24" width="100" height="40" xmlns="http://www.w3.org/2000/svg">
+          <rect width="60" height="24" rx="4" fill="#6D1ED4"/>
+          <text x="30" y="17" font-family="Arial" font-weight="bold" font-size="13" fill="white" text-anchor="middle">Zelle</text>
+        </svg>
+      </div>
+      <h3 class="give-name">Zelle</h3>
+      <p class="give-handle">Send directly to <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="533b363f3f3c13303b213a2027323d37303c353536367d3d3627">[email&#160;protected]</a></strong> via Zelle through your bank app</p>
+      <a href="#" class="give-btn">How to Use Zelle</a>
+    </div>
+
+  </div>
+
+  <!-- ANY AMOUNT -->
+  <div style="max-width:560px;margin:60px auto 0;background:var(--cream);border-radius:4px;border:1px solid var(--sage-light);padding:48px 40px;text-align:center;">
+    <p style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--brown);font-weight:600;margin-bottom:12px;">Give Any Amount</p>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--sage-dark);font-style:italic;margin-bottom:24px;">Every Gift Counts</h3>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;">
+      <button onclick="setAmount(10)" class="amt-btn" id="amt-10">$10</button>
+      <button onclick="setAmount(25)" class="amt-btn" id="amt-25">$25</button>
+      <button onclick="setAmount(50)" class="amt-btn" id="amt-50">$50</button>
+      <button onclick="setAmount(100)" class="amt-btn" id="amt-100">$100</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:0;border-bottom:1.5px solid var(--sage-light);margin-bottom:32px;padding-bottom:8px;">
+      <span style="font-size:20px;color:#aaa;font-weight:300;">$</span>
+      <input type="number" id="custom-amount" placeholder="Enter custom amount" min="1"
+        style="flex:1;border:none;outline:none;font-family:'Montserrat',sans-serif;font-size:18px;color:var(--text-dark);font-weight:300;background:transparent;padding:8px 12px;">
+    </div>
+    <a href="#" id="give-now-btn" class="give-btn" style="display:inline-block;padding:16px 48px;font-size:11px;">Sow Into the Ministry</a>
+  </div>
+  <div class="footer-socials">
+    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p class="footer-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e464b4242416e4d465c475d5a4f404a4d4148484b4b00404b5a">[email&#160;protected]</a></p>
+  <p class="f

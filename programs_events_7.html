@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs & Events — Christ and Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --sage: #6B8F6B;
+    --sage-dark: #4A5E4A;
+    --sage-light: #C8D8C8;
+    --cream: #FAF7F0;
+    --cream-alt: #F0EDE4;
+    --brown: #7B4F2E;
+    --brown-light: #C9A484;
+    --lime: #A8C84A;
+    --text-dark: #2C2C2C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: var(--sage); z-index: 100;
+    padding: 0 48px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  }
+  .nav-logo { text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--cream); letter-spacing: 1px; font-style: italic; }
+  .nav-logo span {
+    color: var(--brown-light);
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { color: var(--cream); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.2s; }
+  .nav-links a:hover, .nav-links a.active { opacity: 1; }
+  .nav-links a.active { border-bottom: 1px solid var(--lime); padding-bottom: 2px; }
+  .nav-btn { background: var(--lime); color: var(--sage-dark) !important; padding: 10px 22px; border-radius: 50px; font-weight: 600 !important; opacity: 1 !important; }
+
+  /* ── HERO ── */
+  .page-hero {
+    background: var(--sage); padding: 160px 48px 100px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(168,200,74,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(123,79,46,0.08) 0%, transparent 50%);
+  }
+  .page-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 20px; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 7vw, 90px); font-weight: 600; color: var(--cream); line-height: 1; margin-bottom: 24px; }
+  .page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 24px); color: var(--cream); opacity: 0.8; font-style: italic; font-weight: 300; max-width: 560px; margin: 0 auto; line-height: 1.6; }
+
+  /* ── SECTION SHARED ── */
+  .section-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 4vw, 52px); font-weight: 600; line-height: 1.1; margin-bottom: 48px; }
+
+  /* ── PROGRAMS ── */
+  .programs { background: var(--cream); padding: 100px 48px; text-align: center; }
+  .programs .section-eyebrow { color: var(--brown); }
+  .programs .section-title { color: var(--sage-dark); }
+
+  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; }
+
+  .program-card {
+    background: var(--sage); border-radius: 4px; padding: 48px 36px; text-align: left;
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .program-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--lime);
+  }
+  .program-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(74,94,74,0.2); }
+  .program-icon { font-size: 36px; margin-bottom: 20px; display: block; }
+  .program-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--cream); margin-bottom: 16px; font-style: italic; }
+  .program-text { font-size: 13px; line-height: 1.9; color: rgba(250,247,240,0.75); font-weight: 300; margin-bottom: 28px; }
+  .program-tag { display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--lime); font-weight: 600; border: 1px solid rgba(168,200,74,0.4); padding: 5px 12px; border-radius: 50px; margin-bottom: 16px; }
+  .program-btn { display: inline-block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--lime); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--lime); padding-bottom: 2px; transition: opacity 0.2s; }
+  .program-btn:hover { opacity: 0.7; }
+
+  /* ── FEATURED EVENT ── */
+  .featured { background: var(--cream-alt); padding: 100px 48px; }
+  .featured-inner { max-width: 1100px; margin: 0 auto; }
+  .featured .section-eyebrow { color: var(--brown); }
+  .featured .section-title { color: var(--sage-dark); }
+
+  .featured-card {
+    background: var(--sage); border-radius: 4px; overflow: hidden;
+    display: grid; grid-template-columns: 280px 1fr; min-height: 360px;
+  }
+  .featured-image { background: var(--sage-dark); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px; text-align: center; }
+  .featured-date-big { font-family: 'Cormorant Garamond', serif; font-size: 80px; font-weight: 700; color: var(--cream); line-height: 1; margin-bottom: 4px; }
+  .featured-month { font-size: 14px; letter-spacing: 4px; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 32px; }
+  .featured-badge { background: var(--lime); color: var(--sage-dark); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; padding: 8px 20px; border-radius: 50px; }
+  .featured-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+  .featured-type { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 16px; }
+  .featured-title { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 600; color: var(--cream); line-height: 1.1; margin-bottom: 16px; font-style: italic; }
+  .featured-desc { font-size: 14px; line-height: 1.9; color: rgba(250,247,240,0.75); font-weight: 300; margin-bottom: 28px; }
+  .featured-details { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; }
+  .detail-item { display: flex; align-items: center; gap: 12px; font-size: 13px; color: rgba(250,247,240,0.7); font-weight: 300; }
+  .featured-btn { display: inline-block; background: var(--cream); color: var(--sage-dark); padding: 14px 36px; border-radius: 50px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: all 0.3s; align-self: flex-start; }
+  .featured-btn:hover { background: var(--lime); }
+
+  /* ── UPCOMING EVENTS ── */
+  .upcoming { background: var(--cream); padding: 100px 48px; }
+  .upcoming-inner { max-width: 1100px; margin: 0 auto; }
+  .upcoming .section-eyebrow { color: var(--brown); }
+  .upcoming .section-title { color: var(--sage-dark); }
+
+  .events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  .event-card { background: var(--cream); border-radius: 4px; overflow: hidden; border: 1px solid var(--sage-light); transition: all 0.3s; min-width: 0; }
+  .event-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(74,94,74,0.12); }
+  .event-card-header { background: var(--sage); padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; }
+  .event-date { font-family: 'Cormorant Garamond', serif; color: var(--cream); }
+  .event-date-day { font-size: 44px; font-weight: 700; line-height: 1; }
+  .event-date-month { font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 400; opacity: 0.8; }
+  .event-type-badge { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; padding: 6px 14px; border-radius: 50px; border: 1px solid rgba(250,247,240,0.3); color: var(--cream); }
+  .event-type-badge.wellness { border-color: var(--brown-light); color: var(--brown-light); }
+  .event-type-badge.study { border-color: var(--sage-light); color: var(--sage-light); }
+  .event-type-badge.community { border-color: rgba(250,247,240,0.5); }
+  .event-card-body { padding: 28px; }
+  .event-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--sage-dark); margin-bottom: 10px; font-style: italic; line-height: 1.2; }
+  .event-desc { font-size: 13px; line-height: 1.8; color: #777; font-weight: 300; margin-bottom: 20px; }
+  .event-meta { display: flex; flex-direction: column; gap: 6px; margin-bottom: 24px; padding-top: 16px; border-top: 1px solid var(--sage-light); }
+  .event-meta-item { font-size: 12px; color: #888; font-weight: 400; }
+  .event-btn { display: inline-block; background: var(--sage); color: var(--cream); padding: 11px 24px; border-radius: 50px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+  .event-btn:hover { background: var(--sage-dark); }
+  .event-btn.outline { background: transparent; color: var(--sage); border: 1.5px solid var(--sage); }
+  .event-btn.outline:hover { background: var(--sage); color: var(--cream); }
+
+  /* ── THE MEETUP ── */
+  .meetup { background: var(--sage); padding: 100px 48px; }
+  .meetup-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .meetup-content .section-eyebrow { color: var(--lime); }
+  .meetup-content .section-title { color: var(--cream); margin-bottom: 24px; }
+  .meetup-text { font-size: 15px; line-height: 1.9; color: rgba(250,247,240,0.75); font-weight: 300; margin-bottom: 32px; }
+  .meetup-details { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+  .meetup-detail { display: flex; align-items: flex-start; gap: 16px; background: rgba(250,247,240,0.08); border: 1px solid rgba(250,247,240,0.12); border-radius: 4px; padding: 18px 22px; }
+  .meetup-detail-text { font-size: 13px; color: rgba(250,247,240,0.85); font-weight: 300; line-height: 1.6; }
+  .meetup-detail-text strong { display: block; font-weight: 600; color: var(--cream); font-size: 14px; margin-bottom: 4px; }
+  .meetup-btn { display: inline-block; background: var(--lime); color: var(--sage-dark); padding: 16px 40px; border-radius: 50px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; text-decoration: none; transition: opacity 0.2s; }
+  .meetup-btn:hover { opacity: 0.9; }
+  .meetup-visual { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 160px; }
+  .visual-card { background: rgba(250,247,240,0.08); border: 1px solid rgba(250,247,240,0.12); border-radius: 4px; padding: 28px 20px; text-align: center; }
+  .visual-card.highlight { background: rgba(250,247,240,0.2); border: 2px solid #A8C84A; }
+  .visual-card-title { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--cream); margin-bottom: 8px; font-style: italic; }
+  .visual-card-text { font-size: 12px; color: rgba(250,247,240,0.6); font-weight: 300; line-height: 1.6; }
+
+  /* ── NOTIFY ── */
+  .notify { background: var(--brown); padding: 80px 48px; text-align: center; }
+  .notify-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 48px); font-weight: 600; color: var(--cream); margin-bottom: 16px; font-style: italic; }
+  .notify-text { font-size: 14px; color: rgba(250,247,240,0.75); font-weight: 300; max-width: 480px; margin: 0 auto 40px; line-height: 1.8; }
+  .notify-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+  .notify-input { flex: 1; background: rgba(250,247,240,0.1); border: 1.5px solid rgba(250,247,240,0.25); border-radius: 50px; padding: 16px 24px; font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--cream); outline: none; }
+  .notify-input::placeholder { color: rgba(250,247,240,0.4); }
+  .notify-btn { background: var(--cream); color: var(--brown); border: none; padding: 16px 28px; border-radius: 50px; font-family: 'Montserrat', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: all 0.3s; white-space: nowrap; }
+  .notify-btn:hover { background: var(--lime); color: var(--sage-dark); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--sage-dark); padding: 60px 48px 40px; text-align: center; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); font-style: italic; margin-bottom: 24px; }
+  .footer-verse { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--cream); margin-bottom: 32px; font-weight: 600; opacity: 0.95; }
+  .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(250,247,240,0.6); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--cream); }
+  .footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+  .social-icon { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(250,247,240,0.2); display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .social-icon:hover { border-color: var(--lime); color: var(--lime); }
+  .footer-email { font-size: 13px; color: rgba(250,247,240,0.5); margin-bottom: 8px; }
+  .footer-copy { font-size: 11px; color: rgba(250,247,240,0.3); letter-spacing: 1px; }
+  .footer-legal { margin-top: 16px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .footer-legal a { color: rgba(250,247,240,0.4); font-size: 10px; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-legal a:hover { color: rgba(250,247,240,0.8); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .green-cross { display:inline-block;vertical-align:middle;margin:0 2px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="christandcoffee_about_FIX.html">About</a></li>
+    <li><a href="#" class="active">Programs & Events</a></li>
+    <li><a href="kingdom-business.html">Kingdom Business</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="signup_13(1).html" class="nav-btn">Join Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <p class="page-eyebrow">What We Offer</p>
+  <h1 class="page-title">Programs & Events</h1>
+  <p class="page-subtitle">From Bible study to wellness to fellowship — there's always something happening at Christ and Coffee</p>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <p class="section-eyebrow">Our Core Programs</p>
+  <h2 class="section-title">How We Grow Together</h2>
+  <div class="programs-grid">
+
+    <div class="program-card">
+      <span class="program-tag">Ongoing</span>
+      <span class="program-icon"><svg width="64" height="52" viewBox="0 0 64 52" xmlns="http://www.w3.org/2000/svg">
+ <!-- Shadow -->
+ <ellipse cx="32" cy="51" rx="26" ry="2.5" fill="#00000018"/>
+ <!-- Left page -->
+ <path d="M5 6 C5 4 7 3 9 3 L32 5 L32 47 L9 45 C7 45 5 43 5 41 Z" fill="#FAF7F0"/>
+ <path d="M5 6 C5 4 7 3 9 3 L32 5 L32 47 L9 45 C7 45 5 43 5 41 Z" stroke="#C8BFA0" stroke-width="0.8"/>
+ <!-- Right page -->
+ <path d="M59 6 C59 4 57 3 55 3 L32 5 L32 47 L55 45 C57 45 59 43 59 41 Z" fill="#FAF7F0"/>
+ <path d="M59 6 C59 4 57 3 55 3 L32 5 L32 47 L55 45 C57 45 59 43 59 41 Z" stroke="#C8BFA0" stroke-width="0.8"/>
+ <!-- Page shadow center -->
+ <rect x="29" y="3" width="6" height="44" fill="#E8E0C8" opacity="0.5"/>
+ <!-- Spine -->
+ <rect x="30" y="3" width="4" height="44" rx="1" fill="#7B4F2E"/>
+ <!-- Left page lines -->
+ <line x1="11" y1="13" x2="27" y2="13" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="17" x2="27" y2="17" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="21" x2="27" y2="21" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="25" x2="27" y2="25" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="29" x2="27" y2="29" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="11" y1="33" x2="23" y2="33" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <!-- Right page lines -->
+ <line x1="37" y1="13" x2="53" y2="13" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="17" x2="53" y2="17" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="21" x2="53" y2="21" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="25" x2="53" y2="25" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="29" x2="53" y2="29" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <line x1="37" y1="33" x2="49" y2="33" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
+ <!-- Small cross right page -->
+ <rect x="44" y="36" width="3" height="8" rx="0.8" fill="#7B4F2E" opacity="0.7"/>
+ <rect x="41" y="38.5" width="9" height="3" rx="0.8" fill="#7B4F2E" opacity="0.7"/>
+ <!-- Red bookmark -->
+ <path d="M50 3 L50 19 L48 17 L46 19 L46 3 Z" fill="#C0392B" opacity="0.85"/>
+ <!-- Cover peek at top -->
+ <path d="M9 3 L32 3 L32 6 L9 6 Z" fill="#6B8F6B" opacity="0.2"/>
+ <path d="M55 3 L32 3 L32 6 L55 6 Z" fill="#6B8F6B" opacity="0.2"/>
+</svg></span>
+      <h3 class="program-title">Bible Study Series</h3>
+      <p class="program-text">Deep dive discussions into the Word of God. We study women of the Bible, books of scripture, and real life application — all in a safe, honest and welcoming space. Meetings twice monthly.</p>
+      <a href="#" class="program-btn">View Current Series</a>
+    </div>
+
+    <div class="program-card">
+      <span class="program-tag">6 Weeks</span>
+      <span class="program-icon">🌿</span>
+      <h3 class="program-title">Temple Wellness</h3>
+      <p class="program-text">A 6-week faith based wellness program covering physical health, mental health, and nutrition. Because stewarding our bodies is an act of worship. — 1 Corinthians 6:19</p>
+      <a href="#" class="program-btn">Learn More</a>
+    </div>
+
+    <div class="program-card">
+      <span class="program-tag">Coming Soon</span>
+      <span class="program-icon">🎙️</span>
+      <h3 class="program-title">The Conversations</h3>
+      <p class="program-text">Deeper conversations about faith, life, discipleship and everything in between. Our podcast is coming soon — real women, real faith, real talk. You don't want to miss it.</p>
+      <a href="#" class="program-btn">Stay Tuned</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEATURED EVENT -->
+<section class="featured">
+  <div class="featured-inner">
+    <p class="section-eyebrow">Don't Miss This One</p>
+    <h2 class="section-title">Featured Event</h2>
+    <div class="featured-card">
+      <div class="featured-image">
+        <div class="featured-date-big">25</div>
+        <div class="featured-month">April 2025</div>
+        <div class="featured-badge">Get Your Tickets</div>
+      </div>
+      <div class="featured-content">
+        <p class="featured-type">Fundraiser Event</p>
+        <h2 class="featured-title">Salsa Night</h2>
+        <p class="featured-desc">An unforgettable co-ed evening of dancing, food, fellowship and fun. Bring your partner, bring your friends — this is our biggest fundraiser of the season and you do NOT want to miss it. All proceeds go directly back into the Christ and Coffee ministry.</p>
+        <div class="featured-details">
+          <div class="detail-item">Friday, April 25, 2025</div>
+          <div class="detail-item">7:00 PM — Late</div>
+          <div class="detail-item">Connecticut — Location TBA</div>
+          <div class="detail-item">Co-ed event — couples and date night welcome</div>
+        </div>
+        <a href="#" class="featured-btn">Get Your Tickets</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPCOMING EVENTS -->
+<section class="upcoming">
+  <div class="upcoming-inner">
+    <p class="section-eyebrow">Mark Your Calendar</p>
+    <h2 class="section-title">Upcoming Events</h2>
+    <div class="events-grid">
+
+      <div class="event-card">
+        <div class="event-card-header">
+          <div class="event-date">
+            <div class="event-date-day">23</div>
+            <div class="event-date-month">March</div>
+          </div>
+          <span class="event-type-badge wellness">Wellness</span>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-title">Temple Wellness Kickoff</h3>
+          <p class="event-desc">The official launch of our 6-week Temple Wellness program. Come meet the leaders, receive your workbook, and get ready to steward your body as the temple God designed it to be.</p>
+          <div class="event-meta">
+            <div class="event-meta-item">Sunday, March 23, 2025</div>
+            <div class="event-meta-item">2:00 PM</div>
+            <div class="event-meta-item">Connecticut</div>
+            <div class="event-meta-item">Registration required</div>
+          </div>
+          <a href="#" class="event-btn">Register Now</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-card-header">
+          <div class="event-date">
+            <div class="event-date-day">28</div>
+            <div class="event-date-month">March</div>
+          </div>
+          <span class="event-type-badge study">Bible Study</span>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-title">Christ and Coffee Meetup</h3>
+          <p class="event-desc">Our bi-monthly gathering for deep scripture discussion, real talk, reflection questions, prayer and of course — good coffee. All women welcome, no experience required.</p>
+          <div class="event-meta">
+            <div class="event-meta-item">Friday, March 28, 2025</div>
+            <div class="event-meta-item">6:30 PM</div>
+            <div class="event-meta-item">Location TBA</div>
+            <div class="event-meta-item">Bring a treat to share!</div>
+          </div>
+          <a href="#" class="event-btn">RSVP Here</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-card-header">
+          <div class="event-date">
+            <div class="event-date-day">TBA</div>
+            <div class="event-date-month">Spring</div>
+          </div>
+          <span class="event-type-badge community">Community</span>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-title">Free CPR Class</h3>
+          <p class="event-desc">A FREE life skills event open to the whole community. Learn hands-on CPR and basic emergency response — because Christ and Coffee equips women for life both inside and outside the church.</p>
+          <div class="event-meta">
+            <div class="event-meta-item">Spring 2025 — Date Coming Soon</div>
+            <div class="event-meta-item">Location TBA</div>
+            <div class="event-meta-item">Completely FREE to attend</div>
+          </div>
+          <a href="#" class="event-btn outline">Get Notified</a>
+        </div>
+      </div>
+
+      <div class="event-card">
+        <div class="event-card-header">
+          <div class="event-date">
+            <div class="event-date-day">2026</div>
+            <div class="event-date-month">Spring</div>
+          </div>
+          <span class="event-type-badge community">Family</span>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-title">Moms, Grandmas & Kids Playdate</h3>
+          <p class="event-desc">A special family gathering for our C✝C moms and grandmothers to bring their little ones for a fun afternoon of play, fellowship and community. Because faith is best passed down through generations.</p>
+          <div class="event-meta">
+            <div class="event-meta-item">Spring 2026 — Date Coming Soon</div>
+            <div class="event-meta-item">Location TBA</div>
+            <div class="event-meta-item">Kids of all ages welcome</div>
+            <div class="event-meta-item">Free to attend</div>
+          </div>
+          <a href="#" class="event-btn outline">Get Notified</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE MEETUP -->
+<section class="meetup">
+  <div class="meetup-inner">
+    <div class="meetup-content">
+      <p class="section-eyebrow">Our Regular Gatherings</p>
+      <h2 class="section-title">The C✝C Meetup</h2>
+      <p class="meetup-text">At the heart of Christ and Coffee is our bi-monthly meetup — a 90-minute gathering where women come together to study scripture, have honest conversations, pray, and do life together.</p>
+      <div class="meetup-details">
+        <div class="meetup-detail">
+          <div class="meetup-detail-text"><strong>Twice a Month</strong>During active series — 7 weeks with a short break between</div>
+        </div>
+        <div class="meetup-detail">
+          <div class="meetup-detail-text"><strong>90 Minutes</strong>Scripture study, discussion, reflection questions and prayer</div>
+        </div>
+        <div class="meetup-detail">
+          <div class="meetup-detail-text"><strong>Rotating Locations</strong>Coffee shops, homes, libraries — always somewhere cozy</div>
+        </div>
+        <div class="meetup-detail">
+          <div class="meetup-detail-text"><strong>Bring a Treat to Share</strong>Women are encouraged to bring something yummy — it's literally in our name!</div>
+        </div>
+      </div>
+      <a href="#" class="meetup-btn">Join Our Next Meetup</a>
+    </div>
+    <div class="meetup-visual">
+      <div class="visual-card">
+        <div class="visual-card-title">Scripture Study</div>
+        <div class="visual-card-text">Deep discussion with cross references and real life application</div>
+      </div>
+      <div class="visual-card">
+        <div class="visual-card-title">Prayer</div>
+        <div class="visual-card-text">We pray for each other and with each other every meetup</div>
+      </div>
+      <div class="visual-card">
+        <div class="visual-card-title">Real Talk</div>
+        <div class="visual-card-text">Vulnerable honest conversations — no masks required here</div>
+      </div>
+      <div class="visual-card highlight">
+        <div class="visual-card-title">Fellowship & Coffee</div>
+        <div class="visual-card-text">Because community happens around a table — always with something good to sip</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTIFY -->
+<section class="notify">
+  <h2 class="notify-title">Never Miss an Event</h2>
+  <p class="notify-text">Subscribe to stay in the loop on upcoming meetups, programs, fundraisers and special gatherings. We'll bring Christ and Coffee right to your inbox.</p>
+  <div class="notify-form">
+    <input type="email" class="notify-input" placeholder="your@email.com">
+    <button class="notify-btn">Notify Me</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Christ and Coffee</div>
+  <p class="footer-verse">"Rejoice in the Lord always. I will say it again: Rejoice!" — Philippians 4:4</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="christandcoffee_about_FIX.html">About</a>
+    <a href="programs_events_7.html">Programs & Events</a>
+    <a href="kingdom-business.html">Kingdom Business</a>
+    <a href="merch.html">Merch</a>
+    <a href="donate_9.html">Donate</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="footer-socials">
+    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p class="footer-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fa929f969695ba99928893898e9b949e99959c9c9f9fd4949f8e">[email&#160;protected]</a></p>
+  <p class="footer-copy">© 2025 Christ and Coffee LLC · Connecticut · All Rights Reserved</p>
+  <div class="footer-legal">
+    <a href="pr

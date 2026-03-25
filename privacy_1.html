@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Christ and Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+ :root {
+ --sage: #6B8F6B;
+ --sage-dark: #4A5E4A;
+ --sage-light: #C8D8C8;
+ --cream: #FAF7F0;
+ --cream-alt: #F0EDE4;
+ --brown: #7B4F2E;
+ --brown-light: #C9A484;
+ --lime: #A8C84A;
+ --white: #FFFFFF;
+ --text-dark: #2C2C2C;
+ }
+
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ html { scroll-behavior: smooth; }
+ body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text-dark); }
+
+ nav {
+ position: fixed; top: 0; left: 0; right: 0;
+ background: var(--sage); z-index: 100;
+ padding: 0 48px; height: 72px;
+ display: flex; align-items: center; justify-content: space-between;
+ box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+ }
+.nav-logo { text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--cream); letter-spacing: 1px; font-style: italic; }
+.nav-logo span { color: var(--brown-light); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { color: var(--cream); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.2s; }
+.nav-links a:hover { opacity: 1; }
+.nav-btn { background: var(--lime); color: var(--sage-dark)!important; padding: 10px 22px; border-radius: 50px; font-weight: 600!important; opacity: 1!important; }
+
+.page-hero {
+ background: var(--sage); padding: 160px 48px 80px; text-align: center;
+ }
+.page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 6vw, 72px); font-weight: 600; color: var(--cream); margin-bottom: 16px; }
+.page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--cream); opacity: 0.8; font-style: italic; }
+
+.content {
+ max-width: 800px; margin: 0 auto; padding: 80px 48px;
+ }
+
+.updated {
+ font-size: 12px; color: #888; letter-spacing: 2px; text-transform: uppercase;
+ margin-bottom: 48px; padding-bottom: 24px; border-bottom: 1px solid var(--sage-light);
+ }
+
+ h2 {
+ font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600;
+ color: var(--sage-dark); margin: 48px 0 16px;
+ }
+
+ p { font-size: 15px; line-height: 1.9; color: #555; font-weight: 300; margin-bottom: 16px; }
+
+ ul { margin: 16px 0 16px 24px; }
+ ul li { font-size: 15px; line-height: 1.9; color: #555; font-weight: 300; margin-bottom: 8px; }
+
+.highlight-box {
+ background: var(--sage-light); border-left: 4px solid var(--sage);
+ padding: 24px 28px; border-radius: 4px; margin: 32px 0;
+ }
+.highlight-box p { color: var(--sage-dark); font-weight: 400; margin: 0; }
+
+ a { color: var(--sage); text-decoration: underline; }
+
+ footer {
+ background: var(--sage-dark); padding: 60px 48px 40px; text-align: center;
+ }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--cream); font-style: italic; margin-bottom: 24px; }
+.footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+.footer-links a { color: rgba(250,247,240,0.6); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+.footer-links a:hover { color: var(--cream); }
+.footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+.social-icon { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(250,247,240,0.2); display: flex; align-items: center; justify-content: center; color: var(--cream); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+.social-icon:hover { border-color: var(--lime); color: var(--lime); }
+.footer-verse { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--cream); margin-bottom: 32px; font-weight: 600; opacity: 0.95; }
+.footer-email { font-size: 13px; color: rgba(250,247,240,0.5); margin-bottom: 8px; }
+.footer-copy { font-size: 11px; color: rgba(250,247,240,0.3); letter-spacing: 1px; }
+.footer-legal { margin-top: 16px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.footer-legal a { color: rgba(250,247,240,0.4); font-size: 10px; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+.footer-legal a:hover { color: rgba(250,247,240,0.8); }
+</style>
+</head>
+<body>
+
+<nav>
+ <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+ <ul class="nav-links">
+ <li><a href="index.html">Home</a></li>
+ <li><a href="christandcoffee_about_FIX.html">About</a></li>
+ <li><a href="programs_events_7.html">Events</a></li>
+ <li><a href="programs_events_7.html">Programs</a></li>
+ <li><a href="kingdom-business.html">Kingdom Business</a></li>
+ <li><a href="signup_13(1).html" class="nav-btn">Join Us</a></li>
+ </ul>
+</nav>
+
+<section class="page-hero">
+ <h1 class="page-title">Privacy Policy</h1>
+ <p class="page-subtitle">Your privacy matters to us</p>
+</section>
+
+<div class="content">
+ <p class="updated">Last Updated: March 2025</p>
+
+ <div class="highlight-box">
+ <p>Christ and Coffee LLC is committed to protecting your personal information. This policy explains how we collect, use, and safeguard your data when you interact with our website, programs, and community.</p>
+ </div>
+
+ <h2>1. Information We Collect</h2>
+ <p>When you interact with Christ and Coffee — through our website, member sign-up form, event registrations, or newsletter — we may collect the following information:</p>
+ <ul>
+ <li>First and last name</li>
+ <li>Email address</li>
+ <li>Phone number</li>
+ <li>Birthday (month and day only — no year required)</li>
+ <li>Home church and city/town</li>
+ <li>T-shirt size</li>
+ <li>Emergency contact information</li>
+ <li>Prayer requests or personal notes (voluntarily submitted)</li>
+ <li>Program and event registrations</li>
+ </ul>
+
+ <h2>2. How We Use Your Information</h2>
+ <p>We use the information you provide solely to serve and connect our community. This includes:</p>
+ <ul>
+ <li>Sending event announcements, meetup reminders and program updates</li>
+ <li>Celebrating your birthday with our community</li>
+ <li>Registering you for programs like Temple Wellness</li>
+ <li>Contacting you about Christ and Coffee news and resources</li>
+ <li>Keeping our member directory current and accurate</li>
+ </ul>
+ <p>We will NEVER sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+ <h2>3. Prayer Requests & Personal Notes</h2>
+ <p>Any prayer requests or personal notes submitted through our forms are treated with the highest level of confidentiality. This information is only accessible to Christ and Coffee leadership and is used solely for prayer and pastoral support purposes.</p>
+
+ <h2>4. Photos & Media</h2>
+ <p>We only use photos of community members who have given explicit written or digital consent. If you have not consented to photo use, your image will not appear on our website, social media, or any ministry materials. You may withdraw consent at any time by contacting us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="127a777e7e7d52717a607b6166737c76717d747477773c7c7766">[email&#160;protected]</a>.</p>
+<p>By attending any Christ and Coffee event, meetup, or gathering, attendees acknowledge that photos and videos may be taken for ministry use. These may be used on our website, social media, podcast, YouTube channel, and other ministry materials. If you do not wish to be photographed or filmed at an event, please notify a Christ and Coffee leader before or at the start of the event and we will fully respect your wishes. You may also withdraw consent at any time by contacting us at <a href="/cdn-cgi/l/email-protection#3159545d5d5e71525943584245505f55525e575754541f5f5445"><span class="__cf_email__" data-cfemail="741c1118181b34171c061d0700151a10171b121211115a1a1100">[email&#160;protected]</span></a>.</p>
+
+ <h2>5. Third Party Services</h2>
+ <p>We use the following third-party services to operate our ministry:</p>
+ <ul>
+ <li><strong>Google Forms & Google Sheets</strong> — for member sign-ups and event registrations</li>
+ <li><strong>PayPal / Cash App / Venmo</strong> — for donations and event payments</li>
+ <li><strong>Mailchimp or similar</strong> — for newsletter communications</li>
+ <li><strong>Printful</strong> — for merch orders (separate privacy policy applies)</li>
+ </ul>
+ <p>Each of these services has their own privacy policies which govern their use of your data.</p>
+
+ <h2>6. Data Security</h2>
+ <p>We take reasonable precautions to protect your personal information from unauthorized access, disclosure, or misuse. Our member data is stored securely and access is limited to authorized leadership only.</p>
+
+ <h2>7. Your Rights</h2>
+ <p>You have the right to:</p>
+ <ul>
+ <li>Request access to the personal information we hold about you</li>
+ <li>Request correction of any inaccurate information</li>
+ <li>Request removal of your information from our records</li>
+ <li>Opt out of communications at any time</li>
+ </ul>
+ <p>To exercise any of these rights please contact us at <a href="/cdn-cgi/l/email-protection#4028252c2c2f00232832293334212e24232f262625256e2e2534"><span class="__cf_email__" data-cfemail="4129242d2d2e01222933283235202f25222e272724246f2f2435">[email&#160;protected]</span></a></p>
+
+ <h2>8. Children's Privacy</h2>
+ <p>Christ and Coffee is a ministry designed for adult women. We do not knowingly collect personal information from anyone under the age of 18. Our meetups do not permit children to attend in order to maintain a safe and open discussion environment for all members.</p>
+
+ <h2>9. Changes to This Policy</h2>
+ <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date. Continued use of our website or participation in our community constitutes acceptance of the updated policy.</p>
+
+ <h2>10. Contact Us</h2>
+ <p>If you have any questions about this Privacy Policy please contact us:</p>
+ <p><strong>Christ and Coffee LLC</strong><br>
+ Connecticut<br>
+ Email: <a href="/cdn-cgi/l/email-protection#1d75787171725d7e756f746e697c73797e727b7b787833737869"><span class="__cf_email__" data-cfemail="c8a0ada4a4a788aba0baa1bbbca9a6acaba7aeaeadade6a6adbc">[email&#160;protected]</span></a></p>
+
+</div>
+
+<footer>
+ <div class="footer-logo">Christ and Coffee</div>
+ <p class="footer-verse">"A gossip betrays a confidence, but a trustworthy person keeps a secret." — Proverbs 11:13</p>
+ <div class="footer-links">
+ <a href="index.html">Home</a>
+ <a href="christandcoffee_about_FIX.html">About</a>
+ <a href="programs_events_7.html">Programs</a>
+ <a href="programs_events_7.html">Events</a>
+ <a href="kingdom-business.html">Kingdom Business</a>
+ <
