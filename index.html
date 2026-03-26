@@ -744,6 +744,87 @@
  0%, 100% { transform: translateX(-50%) translateY(0); }
  50% { transform: translateX(-50%) translateY(8px); }
  }
+
+ /* ── HAMBURGER ── */
+.hamburger {
+ display: none;
+ flex-direction: column;
+ gap: 5px;
+ cursor: pointer;
+ padding: 4px;
+ background: none;
+ border: none;
+ }
+.hamburger span {
+ width: 24px;
+ height: 2px;
+ background: var(--cream);
+ border-radius: 2px;
+ transition: all 0.3s;
+ display: block;
+ }
+
+ /* ── MOBILE ── */
+ @media (max-width: 768px) {
+ nav { padding: 0 20px; }
+
+ .hamburger { display: flex; }
+
+ .nav-links {
+  display: none;
+  position: absolute;
+  top: 72px;
+  left: 0; right: 0;
+  background: var(--sage-dark);
+  flex-direction: column;
+  gap: 0;
+  padding: 16px 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+ .nav-links.open { display: flex; }
+
+ .nav-links li { width: 100%; }
+
+ .nav-links a {
+  display: block;
+  padding: 14px 24px;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(250,247,240,0.08);
+  }
+
+ .nav-btn {
+  margin: 12px 24px;
+  display: block;
+  text-align: center;
+  border-radius: 50px;
+  }
+
+ .hero { padding: 100px 24px 60px; }
+ .hero-title { font-size: 48px; }
+
+ .about { flex-direction: column; padding: 60px 24px; gap: 40px; }
+ .about-image { width: 100%; }
+
+ .programs-grid { grid-template-columns: 1fr; padding: 60px 24px; }
+ .values-grid { grid-template-columns: 1fr 1fr; padding: 60px 24px; gap: 20px; }
+ .steps-grid { grid-template-columns: 1fr 1fr; padding: 60px 24px; gap: 24px; }
+ .testimonials-grid { grid-template-columns: 1fr; padding: 60px 24px; }
+
+ .contact { padding: 60px 24px; }
+ .form-row { flex-direction: column; gap: 0; }
+
+ footer { padding: 40px 24px 30px; }
+ .footer-links { gap: 16px; }
+
+ .section-title { font-size: 36px; }
+ }
+
+ @media (max-width: 480px) {
+ .hero-title { font-size: 36px; }
+ .values-grid { grid-template-columns: 1fr; }
+ .steps-grid { grid-template-columns: 1fr; }
+ }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -752,6 +833,9 @@
 <!-- NAV -->
 <nav>
  <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+ <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+  <span></span><span></span><span></span>
+ </button>
  <ul class="nav-links">
  <li><a href="christandcoffee_about_FIX.html">About</a></li>
  <li><a href="programs_events_7.html">Programs & Events</a></li>
