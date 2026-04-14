@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Network Directory · Christ and Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --sage: #6B8F6B;
+  --sage-dark: #4A5E4A;
+  --sage-light: #C8D8C8;
+  --cream: #FAF7F0;
+  --cream-alt: #F0EDE4;
+  --brown: #7B4F2E;
+  --brown-light: #C9A484;
+  --lime: #A8C84A;
+  --white: #FFFFFF;
+  --text-dark: #2C2C2C;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--sage);
+  z-index: 100;
+  padding: 0 48px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+.nav-logo { text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 1px;
+  font-style: italic;
+  text-decoration: none;
+}
+.nav-logo span { color: var(--brown-light); }
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.nav-links a:hover { opacity: 1; }
+.nav-btn {
+  background: var(--lime);
+  color: var(--sage-dark)!important;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600!important;
+  opacity: 1!important;
+}
+
+/* ── PAGE HERO ── */
+.page-hero {
+  min-height: 52vh;
+  background: var(--sage);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 48px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(168,200,74,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 80%, rgba(123,79,46,0.1) 0%, transparent 50%);
+}
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 500;
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease both;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 7vw, 86px);
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+.hero-title span { color: var(--brown-light); }
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 22px);
+  color: var(--cream);
+  opacity: 0.85;
+  font-style: italic;
+  font-weight: 300;
+  max-width: 580px;
+  line-height: 1.6;
+  animation: fadeUp 0.8s 0.2s ease both;
+}
+
+/* ── INTRO STRIP ── */
+.intro-strip {
+  background: var(--cream);
+  padding: 70px 48px;
+  text-align: center;
+  border-bottom: 1px solid var(--sage-light);
+}
+.intro-strip p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #555;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto 32px;
+}
+.submit-btn {
+  display: inline-block;
+  background: var(--sage);
+  color: var(--cream);
+  padding: 16px 44px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.submit-btn:hover { background: var(--sage-dark); transform: translateY(-2px); }
+
+/* ── FILTERS ── */
+.filters-bar {
+  background: var(--cream-alt);
+  padding: 36px 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: 1px solid var(--sage-light);
+}
+.filter-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-right: 8px;
+}
+.filter-btn {
+  background: transparent;
+  border: 1.5px solid var(--sage-light);
+  color: #666;
+  padding: 9px 20px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.25s;
+  font-family: 'Montserrat', sans-serif;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--sage);
+  color: var(--cream);
+  border-color: var(--sage);
+}
+.search-wrap {
+  position: relative;
+  margin-left: auto;
+}
+.search-wrap input {
+  padding: 10px 20px 10px 42px;
+  border: 1.5px solid var(--sage-light);
+  border-radius: 50px;
+  font-size: 12px;
+  font-family: 'Montserrat', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  outline: none;
+  width: 240px;
+  transition: border-color 0.2s;
+}
+.search-wrap input:focus { border-color: var(--sage); }
+.search-wrap i {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--sage);
+  font-size: 13px;
+}
+
+/* ── DIRECTORY GRID ── */
+.directory {
+  padding: 80px 48px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.directory-count {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+.directory-count span { color: var(--sage-dark); font-weight: 600; }
+
+.business-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ── BUSINESS CARD ── */
+.biz-card {
+  background: var(--white);
+  border: 1px solid var(--sage-light);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.biz-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(74,94,74,0.14);
+  border-color: var(--sage);
+}
+.biz-card-top {
+  background: var(--sage);
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.biz-card-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(168,200,74,0.15) 0%, transparent 60%);
+}
+.biz-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--sage-dark);
+  border: 3px solid rgba(255,255,255,0.3);
+  position: relative;
+  z-index: 1;
+}
+.biz-category-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--lime);
+  color: var(--sage-dark);
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 50px;
+  z-index: 1;
+}
+.biz-body {
+  padding: 24px 24px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.biz-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-bottom: 4px;
+}
+.biz-owner {
+  font-size: 11px;
+  color: var(--brown);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+.biz-desc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #666;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 20px;
+}
+.biz-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+.biz-tag {
+  background: var(--cream-alt);
+  color: #666;
+  font-size: 10px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.biz-footer {
+  border-top: 1px solid var(--cream-alt);
+  padding-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.biz-contact-links {
+  display: flex;
+  gap: 12px;
+}
+.biz-contact-links a {
+  color: var(--sage);
+  font-size: 15px;
+  transition: color 0.2s;
+}
+.biz-contact-links a:hover { color: var(--sage-dark); }
+.biz-view-btn {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--brown);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--brown-light);
+  padding-bottom: 1px;
+  transition: opacity 0.2s;
+}
+.biz-view-btn:hover { opacity: 0.7; }
+
+/* ── NO RESULTS ── */
+.no-results {
+  text-align: center;
+  padding: 80px 40px;
+  display: none;
+  grid-column: 1/-1;
+}
+.no-results i { font-size: 40px; color: var(--sage-light); margin-bottom: 16px; display: block; }
+.no-results h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  color: var(--sage-dark);
+  margin-bottom: 8px;
+}
+.no-results p { font-size: 13px; color: #999; font-weight: 300; }
+
+/* ── LIST YOUR BUSINESS CTA ── */
+.list-cta {
+  background: var(--sage);
+  padding: 100px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.list-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 50%, rgba(168,200,74,0.1) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(123,79,46,0.12) 0%, transparent 50%);
+}
+.list-cta > * { position: relative; z-index: 1; }
+.list-cta .section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.list-cta h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+.list-cta p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: rgba(250,247,240,0.75);
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto 48px;
+}
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 860px;
+  margin: 0 auto 52px;
+}
+.cta-step {
+  background: rgba(250,247,240,0.07);
+  border: 1px solid rgba(250,247,240,0.12);
+  border-radius: 6px;
+  padding: 32px 24px;
+}
+.cta-step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--sage-dark);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+.cta-step h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.cta-step p {
+  font-size: 12px;
+  color: rgba(250,247,240,0.65);
+  line-height: 1.7;
+  margin: 0;
+}
+.list-btn {
+  display: inline-block;
+  background: var(--lime);
+  color: var(--sage-dark);
+  padding: 18px 52px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s;
+}
+.list-btn:hover { background: #bfd94f; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(168,200,74,0.3); }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(44,44,44,0.7);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal {
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 52px 48px;
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(24px);
+  transition: transform 0.3s;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+.modal-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--text-dark); }
+.modal-eyebrow {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--brown);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.modal h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-bottom: 8px;
+}
+.modal-sub {
+  font-size: 13px;
+  color: #888;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.form-group label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--sage-dark);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 12px 16px;
+  border: 1.5px solid var(--sage-light);
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: var(--text-dark);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--sage); }
+.form-group textarea { height: 100px; resize: vertical; }
+.form-group select { appearance: none; cursor: pointer; }
+.form-submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--sage);
+  color: var(--cream);
+  border: none;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+.form-submit:hover { background: var(--sage-dark); }
+.form-success {
+  text-align: center;
+  padding: 40px 0;
+  display: none;
+}
+.form-success i { font-size: 48px; color: var(--sage); margin-bottom: 20px; display: block; }
+.form-success h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: var(--sage-dark);
+  margin-bottom: 12px;
+}
+.form-success p { font-size: 14px; color: #777; line-height: 1.7; font-weight: 300; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--sage-dark);
+  color: var(--cream);
+  text-align: center;
+  padding: 60px 48px 40px;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+.footer-verse {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+  opacity: 0.6;
+  max-width: 560px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.footer-links a {
+  color: rgba(250,247,240,0.5);
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: opacity 0.2s;
+}
+.footer-links a:hover { color: var(--cream); }
+.footer-copy {
+  font-size: 11px;
+  opacity: 0.4;
+  margin-top: 16px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .business-grid { grid-template-columns: 1fr 1fr; }
+  .cta-grid { grid-template-columns: 1fr; }
+  .filters-bar { padding: 24px; }
+  .search-wrap { margin-left: 0; width: 100%; }
+  .search-wrap input { width: 100%; }
+  .directory { padding: 60px 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .modal { padding: 36px 28px; }
+}
+@media (max-width: 600px) {
+  .business-grid { grid-template-columns: 1fr; }
+  .page-hero { padding: 100px 24px 60px; }
+  .list-cta { padding: 60px 24px; }
+  .intro-strip { padding: 50px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="christandcoffee_about_FIX.html">About</a></li>
+    <li><a href="programs_events_7.html">Programs & Events</a></li>
+    <li><a href="#" style="color:var(--lime);opacity:1;">The Network</a></li>
+    <li><a href="merch.html">Merch</a></li>
+    <li><a href="signup_13(1).html" class="nav-btn">Join Us</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <p class="hero-eyebrow">Women in Business</p>
+  <h2 class="hero-title">The <span>Network</span><br>Directory</h2>
+  <p class="hero-subtitle">Supporting one another is an act of worship. Discover, hire, and refer the talented women in our community.</p>
+</section>
+
+<!-- INTRO STRIP -->
+<section class="intro-strip">
+  <p>Our community is full of talented, God-driven women running businesses that bless others. This directory exists so we can support each other — before we look anywhere else, let's look within our community first.</p>
+  <a class="submit-btn" href="https://bit.ly/kingdom-directory" target="_blank" rel="noopener">✦ List Your Business</a>
+</section>
+
+<!-- FILTERS -->
+<div class="filters-bar">
+  <span class="filter-label">Browse by:</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="beauty">Beauty & Wellness</button>
+  <button class="filter-btn" data-filter="creative">Creative & Design</button>
+  <button class="filter-btn" data-filter="health">Health & Fitness</button>
+  <button class="filter-btn" data-filter="food">Food & Catering</button>
+  <button class="filter-btn" data-filter="finance">Finance & Legal</button>
+  <button class="filter-btn" data-filter="coaching">Coaching & Ministry</button>
+  <button class="filter-btn" data-filter="other">Other</button>
+  <div class="search-wrap">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchInput" placeholder="Search businesses…" oninput="filterCards()">
+  </div>
+</div>
+
+<!-- DIRECTORY -->
+<section class="directory">
+  <p class="directory-count">Showing <span id="countDisplay">8</span> Businesses</p>
+  <div class="business-grid" id="bizGrid">
+    <div class="biz-card" data-category="creative" data-name="melissa's bit o faith">
+      <div class="biz-card-top" style="background: var(--brown);">
+        <span class="biz-category-badge">Creative & Design</span>
+      </div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">Melissa's Bit O Faith</h3>
+        <p class="biz-owner">by Melissa Borres</p>
+        <p class="biz-desc">Customized Christian Inspired Jewelry, Accessories and Resin Crafting.</p>
+        <div class="biz-contact">
+          <a href="mailto:maborres1981@gmail.com" class="biz-link">✉️ maborres1981@gmail.com</a>
+          <div class="biz-phone">📞 (203) 895-0037</div>
+          
+          <div class="biz-social">📱 Instagram & Facebook</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card" data-category="other" data-name="cisco borres, realtor">
+      <div class="biz-card-top" style="background: var(--sage-dark);">
+        <span class="biz-category-badge">Real Estate</span>
+      </div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">Cisco Borres, Realtor</h3>
+        <p class="biz-owner">by Cisco Borres</p>
+        <p class="biz-desc">Facilitating the buying and selling of homes with care and expertise.</p>
+        <div class="biz-contact">
+          <a href="mailto:realtorcisco@gmail.com" class="biz-link">✉️ realtorcisco@gmail.com</a>
+          <div class="biz-phone">📞 (203) 209-9306</div>
+          
+          <div class="biz-social">📱 Facebook</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card" data-category="health" data-name="mindful awareness, pllc">
+      <div class="biz-card-top" style="background: #4A7C59;">
+        <span class="biz-category-badge">Health & Wellness</span>
+      </div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">Mindful Awareness, PLLC</h3>
+        <p class="biz-owner">by Karen Fernandez</p>
+        <p class="biz-desc">Virtual and bilingual mental health therapy for adolescents and adults.</p>
+        <div class="biz-contact">
+          <a href="mailto:info@mindfulawareness.online" class="biz-link">✉️ info@mindfulawareness.online</a>
+          <div class="biz-phone">📞 (475) 777-2501</div>
+          <a href="https://www.mindfulawareness.online" target="_blank" rel="noopener" class="biz-link">🌐 Visit Website</a>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card" data-category="coaching" data-name="shift your journey">
+      <div class="biz-card-top" style="background: #7B5EA7;">
+        <span class="biz-category-badge">Coaching & Ministry</span>
+      </div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">SHIFT Your Journey</h3>
+        <p class="biz-owner">by Monique-Jessica Martinez</p>
+        <p class="biz-desc">Counseling and mental health services to help you shift into your purpose and healing.</p>
+        <div class="biz-contact">
+          <a href="mailto:Hello@shiftyourjourney.com" class="biz-link">✉️ Hello@shiftyourjourney.com</a>
+          <div class="biz-phone">📞 (914) 221-3200</div>
+          <a href="https://www.shiftyourjourney.com/request-an-appointment" target="_blank" rel="noopener" class="biz-link">🌐 Visit Website</a>
+          <div class="biz-social">📱 Psychology Today & TherapyDen</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card" data-category="other" data-name="freedomforge ai">
+      <div class="biz-card-top" style="background: #2C5F8A;">
+        <span class="biz-category-badge">Technology</span>
+      </div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">FreedomForge AI</h3>
+        <p class="biz-owner">by Lynn Jennings</p>
+        <p class="biz-desc">Small business AI integration and training — helping businesses harness the power of AI.</p>
+        <div class="biz-contact">
+          <a href="mailto:lynn.jennings1111@gmail.com" class="biz-link">✉️ lynn.jennings1111@gmail.com</a>
+          <div class="biz-phone">📞 (508) 686-6544</div>
+          <a href="https://www.freedomforgeai.com" target="_blank" rel="noopener" class="biz-link">🌐 Visit Website</a>
+          <div class="biz-social">📱 LinkedIn</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card" data-category="finance" data-name="v2g accounting solutions llc">
+      <div class="biz-card-top" style="background: #3D5A80;">
+        <span class="biz-category-badge">Finance & Legal</span>
+      </div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">V2G Accounting Solutions LLC</h3>
+        <p class="biz-owner">by Vernette Gray</p>
+        <p class="biz-desc">Accounting, new business formation, bookkeeping, and tax services.</p>
+        <div class="biz-contact">
+          <a href="mailto:Vernettegraycpa@yahoo.com" class="biz-link">✉️ Vernettegraycpa@yahoo.com</a>
+          <div class="biz-phone">📞 (203) 650-5265</div>
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card" data-category="coaching" data-name="emerging hope">
+      <div class="biz-card-top" style="background: #C8856A;">
+        <span class="biz-category-badge">Coaching & Ministry</span>
+      </div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">Emerging Hope</h3>
+        <p class="biz-owner">by Amanda Lisette DG</p>
+        <p class="biz-desc">Faith-Centered Coaching & Community for Christian Women.</p>
+        <div class="biz-contact">
+          <a href="mailto:projectemerginghope@gmail.com" class="biz-link">✉️ projectemerginghope@gmail.com</a>
+          <div class="biz-phone">📞 (203) 307-0368</div>
+          <a href="https://www.projectemerginghope.com" target="_blank" rel="noopener" class="biz-link">🌐 Visit Website</a>
+          <div class="biz-social">📱 IG: @emerging.hope</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="biz-card" data-category="health" data-name="holstrength">
+      <div class="biz-card-top" style="background: #5C8A6A;">
+        <span class="biz-category-badge">Health & Fitness</span>
+      </div>
+      <div class="biz-card-body">
+        <h3 class="biz-name">HolStrength</h3>
+        <p class="biz-owner">by Emily Golding</p>
+        <p class="biz-desc">Christian athletic and casual clothing. Get 10% off using code EMILYY10.</p>
+        <div class="biz-contact">
+          <a href="mailto:Emilyg27@comcast.net" class="biz-link">✉️ Emilyg27@comcast.net</a>
+          <div class="biz-phone">📞 (203) 909-3149</div>
+          <a href="https://www.holstrength.com/" target="_blank" rel="noopener" class="biz-link">🌐 Visit Website</a>
+          <div class="biz-social">📱 Instagram @emilyy.golding</div>
+        </div>
+      </div>
+    </div>
+    </div>
+</section>
+
+<!-- LIST YOUR BUSINESS CTA -->
+<section class="list-cta">
+  <p class="section-eyebrow">Join the Directory</p>
+  <h2>Your Business Belongs Here</h2>
+  <p>Are you a C&C woman running a business? Let your sisters find and support you. Listing is completely free — always.</p>
+  <div class="cta-grid">
+    <div class="cta-step">
+      <div class="cta-step-num">1</div>
+      <h4>Submit Your Info</h4>
+      <p>Fill out the quick listing form with your business name, category, and contact details.</p>
+    </div>
+    <div class="cta-step">
+      <div class="cta-step-num">2</div>
+      <h4>Get Approved</h4>
+      <p>We review every listing to keep the directory a safe, vetted space for our community.</p>
+    </div>
+    <div class="cta-step">
+      <div class="cta-step-num">3</div>
+      <h4>Get Found</h4>
+      <p>Your business goes live and your C&C sisters can discover, refer, and support your work.</p>
+    </div>
+  </div>
+  <a class="list-btn" href="https://bit.ly/kingdom-directory" target="_blank" rel="noopener">✦ List My Business — It's Free</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Christ and Coffee</div>
+  <p class="footer-verse">"She sees that her trading is profitable, and her lamp does not go out at night." — Proverbs 31:18</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="christandcoffee_about_FIX.html">About</a>
+    <a href="programs_events_7.html">Programs & Events</a>
+    <a href="the-network.html">The Network</a>
+    <a href="merch.html">Merch</a>
+    <a href="donate_9.html">Donate</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <p class="footer-copy">© 2025 Christ and Coffee LLC · Connecticut · All Rights Reserved</p>
+</footer>
+
+<!-- MODAL REMOVED: submissions handled via Google Form -->
+<div class="modal-overlay" id="modalOverlay" style="display:none!important">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+    <div id="modalForm">
+      <p class="modal-eyebrow">The Network Directory</p>
+      <h2>List Your Business</h2>
+      <p class="modal-sub">Fill out the form below and we'll review your submission within 2–3 business days. Listing is 100% free for C&C community members.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name *</label>
+          <input type="text" placeholder="Sarah" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name *</label>
+          <input type="text" placeholder="Johnson" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Business Name *</label>
+        <input type="text" placeholder="Your Business Name" required>
+      </div>
+      <div class="form-group">
+        <label>Category *</label>
+        <select required>
+          <option value="" disabled selected>Select a category…</option>
+          <option>Beauty & Wellness</option>
+          <option>Creative & Design</option>
+          <option>Health & Fitness</option>
+          <option>Food & Catering</option>
+          <option>Finance & Legal</option>
+          <option>Coaching & Ministry</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Short Business Description *</label>
+        <textarea placeholder="Tell us what you do and who you serve (2–3 sentences)…" required></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Email Address *</label>
+          <input type="email" placeholder="hello@yourbusiness.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(203) 555-0100">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Website</label>
+          <input type="url" placeholder="https://yourbusiness.com">
+        </div>
+        <div class="form-group">
+          <label>Instagram Handle</label>
+          <input type="text" placeholder="@yourbusiness">
+        </div>
+      </div>
+      <button class="form-submit" onclick="handleFormSubmit(event)">Submit for Review ✦</button>
+    </div>
+
+    <div class="form-success" id="formSuccess">
+      <i class="fas fa-check-circle"></i>
+      <h3>You're submitted!</h3>
+      <p>Thank you for listing your business. We'll review your submission and reach out within 2–3 business days. Welcome to the The Network Directory!</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Filter logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterCards();
+  });
+});
+
+function filterCards() {
+  const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+  const searchVal = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.querySelectorAll('.biz-card');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const cat = card.dataset.category;
+    const name = card.dataset.name;
+    const matchesCat = activeFilter === 'all' || cat === activeFilter;
+    const matchesSearch = !searchVal || name.includes(searchVal);
+    if (matchesCat && matchesSearch) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  document.getElementById('countDisplay').textContent = visible;
+  document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+}
+
+// Modal logic
+function openModal() {
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+function handleFormSubmit(e) {
+  e.preventDefault();
+  document.getElementById('modalForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>
