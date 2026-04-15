@@ -42,17 +42,21 @@ nav {
   justify-content: space-between;
   box-shadow: 0 2px 20px rgba(0,0,0,0.15);
 }
-.nav-logo {
-  text-decoration: none;
+.nav-logo { text-decoration: none;
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
   font-weight: 600;
   color: var(--cream);
   letter-spacing: 1px;
   font-style: italic;
+  text-decoration: none;
 }
 .nav-logo span { color: var(--brown-light); }
-.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
 .nav-links a {
   color: var(--cream);
   text-decoration: none;
@@ -73,9 +77,9 @@ nav {
   opacity: 1!important;
 }
 
-/* ── COMING SOON ── */
-.coming-soon {
-  min-height: 100vh;
+/* ── PAGE HERO ── */
+.page-hero {
+  min-height: 50vh;
   background: var(--sage);
   display: flex;
   flex-direction: column;
@@ -86,122 +90,510 @@ nav {
   position: relative;
   overflow: hidden;
 }
-
-.coming-soon::before {
+.page-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 30% 50%, rgba(168,200,74,0.08) 0%, transparent 60%),
               radial-gradient(ellipse at 70% 80%, rgba(123,79,46,0.1) 0%, transparent 50%);
 }
-
-.coffee-cup {
-  font-size: 80px;
-  margin-bottom: 32px;
-  animation: float 3s ease-in-out infinite;
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-}
-
-.coming-eyebrow {
+.page-hero > * { position: relative; z-index: 1; }
+.hero-eyebrow {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--lime);
   font-weight: 500;
   margin-bottom: 20px;
-  position: relative;
-  z-index: 1;
+  animation: fadeUp 0.8s ease both;
 }
-
-.coming-title {
+.hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 8vw, 100px);
+  font-size: clamp(48px, 7vw, 86px);
   font-weight: 600;
   color: var(--cream);
-  line-height: 1;
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 1;
+  line-height: 1.05;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s 0.1s ease both;
 }
-
-.coming-title span { color: var(--lime); }
-
-.coming-subtitle {
+.hero-title span { color: var(--brown-light); }
+.hero-subtitle {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(16px, 2vw, 22px);
   color: var(--cream);
   opacity: 0.85;
   font-style: italic;
   font-weight: 300;
-  max-width: 520px;
-  line-height: 1.7;
-  margin-bottom: 48px;
-  position: relative;
-  z-index: 1;
+  max-width: 560px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+  animation: fadeUp 0.8s 0.2s ease both;
 }
-
-.coming-verse {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-style: italic;
-  color: var(--cream);
-  opacity: 0.6;
-  max-width: 480px;
-  line-height: 1.8;
-  margin-bottom: 48px;
-  position: relative;
-  z-index: 1;
+.hero-tag {
+  display: inline-flex;
+  gap: 24px;
+  animation: fadeUp 0.8s 0.3s ease both;
 }
-
-.notify-form {
+.hero-tag span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(250,247,240,0.6);
+  font-weight: 500;
   display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.hero-tag span i { color: var(--lime); font-size: 11px; }
+
+/* ── ANNOUNCEMENT BANNER ── */
+.announce {
+  background: var(--brown);
+  padding: 14px 48px;
+  text-align: center;
+}
+.announce p {
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--cream);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.announce p span { color: var(--lime); font-weight: 700; }
+
+/* ── FILTER BAR ── */
+.filters-bar {
+  background: var(--cream-alt);
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
   gap: 12px;
-  max-width: 440px;
-  width: 100%;
-  position: relative;
-  z-index: 1;
   flex-wrap: wrap;
   justify-content: center;
+  border-bottom: 1px solid var(--sage-light);
 }
-
-.notify-input {
-  flex: 1;
-  min-width: 220px;
-  padding: 14px 20px;
-  border: 1px solid rgba(250,247,240,0.3);
+.filter-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-right: 6px;
+}
+.filter-btn {
+  background: transparent;
+  border: 1.5px solid var(--sage-light);
+  color: #666;
+  padding: 9px 20px;
   border-radius: 50px;
-  background: rgba(250,247,240,0.1);
-  color: var(--cream);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.25s;
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  outline: none;
-  transition: border 0.2s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--sage);
+  color: var(--cream);
+  border-color: var(--sage);
 }
 
-.notify-input::placeholder { color: rgba(250,247,240,0.5); }
-.notify-input:focus { border-color: var(--lime); }
+/* ── SHOP GRID ── */
+.shop {
+  padding: 80px 48px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.shop-count {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+.shop-count span { color: var(--sage-dark); font-weight: 600; }
 
-.notify-btn {
-  padding: 14px 28px;
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+/* ── PRODUCT CARD ── */
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--sage-light);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 48px rgba(74,94,74,0.13);
+  border-color: var(--sage);
+}
+.product-img {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+.product-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 50px;
+  z-index: 2;
+}
+.badge-new { background: var(--lime); color: var(--sage-dark); }
+.badge-popular { background: var(--brown); color: var(--cream); }
+.badge-limited { background: var(--text-dark); color: var(--cream); }
+
+/* Product mockup illustrations */
+.mockup {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.product-info {
+  padding: 20px 20px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.product-sub {
+  font-size: 11px;
+  color: #999;
+  font-weight: 400;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+.product-colors {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+.color-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.color-dot:hover, .color-dot.active { border-color: var(--sage-dark); }
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--cream-alt);
+}
+.product-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brown);
+}
+.add-btn {
+  background: var(--sage);
+  color: var(--cream);
+  border: none;
+  padding: 9px 18px;
+  border-radius: 50px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.add-btn:hover { background: var(--sage-dark); }
+.add-btn i { font-size: 11px; }
+
+/* ── COMING SOON CARD ── */
+.coming-soon-card {
+  border: 2px dashed var(--sage-light);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  border-radius: 6px;
+  min-height: 340px;
+}
+.coming-soon-card i { font-size: 28px; color: var(--sage-light); margin-bottom: 16px; }
+.coming-soon-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--sage);
+  margin-bottom: 8px;
+}
+.coming-soon-card p { font-size: 12px; color: #bbb; font-weight: 300; line-height: 1.6; }
+
+/* ── VERSE BREAK ── */
+.verse-break {
+  background: var(--cream-alt);
+  padding: 60px 48px;
+  text-align: center;
+  border-top: 1px solid var(--sage-light);
+  border-bottom: 1px solid var(--sage-light);
+}
+.verse-break blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--sage-dark);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.verse-break cite {
+  display: block;
+  margin-top: 16px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--brown);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ── BUNDLES ── */
+.bundles {
+  background: var(--sage);
+  padding: 100px 48px;
+  text-align: center;
+}
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--lime);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 4vw, 52px);
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.section-sub {
+  font-size: 14px;
+  color: rgba(250,247,240,0.7);
+  font-weight: 300;
+  max-width: 500px;
+  margin: 0 auto 60px;
+  line-height: 1.8;
+}
+.bundles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.bundle-card {
+  background: rgba(250,247,240,0.07);
+  border: 1px solid rgba(250,247,240,0.15);
+  border-radius: 6px;
+  padding: 44px 32px;
+  text-align: left;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.bundle-card:hover {
+  background: rgba(250,247,240,0.11);
+  transform: translateY(-4px);
+}
+.bundle-card.featured {
+  border-color: var(--lime);
+  background: rgba(168,200,74,0.08);
+}
+.bundle-featured-tag {
+  position: absolute;
+  top: 0; right: 0;
   background: var(--lime);
   color: var(--sage-dark);
-  border: none;
-  border-radius: 50px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 9px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  cursor: pointer;
-  transition: opacity 0.2s;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-bottom-left-radius: 6px;
 }
-.notify-btn:hover { opacity: 0.85; }
+.bundle-icon { font-size: 36px; margin-bottom: 20px; display: block; }
+.bundle-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.bundle-includes {
+  font-size: 12px;
+  color: rgba(250,247,240,0.6);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 24px;
+}
+.bundle-includes li {
+  list-style: none;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(250,247,240,0.08);
+}
+.bundle-includes li::before { content: '✦  '; color: var(--lime); font-size: 9px; }
+.bundle-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--lime);
+  margin-bottom: 4px;
+}
+.bundle-savings {
+  font-size: 11px;
+  color: rgba(250,247,240,0.5);
+  margin-bottom: 24px;
+  text-decoration: line-through;
+}
+.bundle-btn {
+  display: inline-block;
+  background: transparent;
+  border: 1.5px solid var(--cream);
+  color: var(--cream);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s;
+  border: none;
+}
+.bundle-btn:hover { background: var(--cream); color: var(--sage-dark); }
+.bundle-card.featured .bundle-btn {
+  background: var(--lime);
+  color: var(--sage-dark);
+  border-color: var(--lime);
+}
+.bundle-card.featured .bundle-btn:hover { background: #bfd94f; }
+
+/* ── SHIPPING INFO ── */
+.shipping {
+  background: var(--cream);
+  padding: 80px 48px;
+  text-align: center;
+}
+.shipping-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 48px auto 0;
+}
+.shipping-item {
+  padding: 28px 16px;
+  border-top: 2px solid var(--sage-light);
+  transition: border-color 0.3s;
+}
+.shipping-item:hover { border-color: var(--sage); }
+.shipping-item i {
+  font-size: 24px;
+  color: var(--sage);
+  margin-bottom: 16px;
+  display: block;
+}
+.shipping-item h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--sage-dark);
+  margin-bottom: 8px;
+}
+.shipping-item p {
+  font-size: 12px;
+  color: #999;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ── DONATE BANNER ── */
+.donate-banner {
+  background: var(--brown);
+  padding: 60px 48px;
+  text-align: center;
+}
+.donate-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: 14px;
+  font-style: italic;
+}
+.donate-text {
+  font-size: 14px;
+  color: rgba(250,247,240,0.8);
+  font-weight: 300;
+  max-width: 480px;
+  margin: 0 auto 28px;
+  line-height: 1.8;
+}
+.donate-btn {
+  display: inline-block;
+  background: var(--cream);
+  color: var(--brown);
+  padding: 14px 40px;
+  border-radius: 50px;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.donate-btn:hover { background: var(--lime); color: var(--sage-dark); }
 
 /* ── FOOTER ── */
 footer {
@@ -215,44 +607,51 @@ footer {
   font-weight: 600;
   color: var(--cream);
   font-style: italic;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 .footer-verse {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
+  font-size: 16px;
   font-style: italic;
   color: var(--cream);
   margin-bottom: 32px;
   font-weight: 600;
-  opacity: 0.95;
+  opacity: 0.85;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .footer-links {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 .footer-links a {
-  color: rgba(250,247,240,0.6);
+  color: rgba(250,247,240,0.5);
   text-decoration: none;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-weight: 400;
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--cream); }
 .footer-socials {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 40px;
+  gap: 16px;
+  margin-bottom: 28px;
 }
 .social-icon {
-  width: 40px; height: 40px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: 1px solid rgba(250,247,240,0.2);
-  display: flex; align-items: center; justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--cream);
   font-size: 14px;
   text-decoration: none;
@@ -265,40 +664,434 @@ footer {
   letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { gap: 16px; }
-  .coming-soon { padding: 100px 24px 60px; }
+/* ── CART TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background: var(--sage-dark);
+  color: var(--cream);
+  padding: 16px 24px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  transform: translateY(80px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 300;
+}
+.toast.show { transform: translateY(0); opacity: 1; }
+.toast i { color: var(--lime); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .bundles-grid { grid-template-columns: 1fr; max-width: 480px; }
+  .shipping-grid { grid-template-columns: repeat(2, 1fr); }
+  .shop { padding: 60px 24px; }
+  .bundles { padding: 60px 24px; }
+  .filters-bar { padding: 20px 24px; }
+}
+@media (max-width: 600px) {
+  .product-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .page-hero { padding: 100px 24px 60px; }
+  .shipping-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 420px) {
+  .product-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">Christ and C<span>o</span>ffee</a>
+  <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="christandcoffee_about_FIX.html">About</a></li>
     <li><a href="programs_events_7.html">Programs & Events</a></li>
-    <li><a href="kingdom-business.html">Kingdom Business</a></li>
-    <li><a href="merch.html" style="color:var(--lime);opacity:1;">Merch</a></li>
+    <li><a href="the-network.html">The Network</a></li>
+    <li><a href="#" style="color:var(--lime);opacity:1;">Merch</a></li>
     <li><a href="donate_9.html">Donate</a></li>
-    <li><a href="signup.html" class="nav-btn">Join Us</a></li>
+    <li><a href="signup_13.html" class="nav-btn">Join Us</a></li>
   </ul>
 </nav>
 
-<section class="coming-soon">
-  <div class="coffee-cup">☕</div>
-  <p class="coming-eyebrow">Something Good Is Brewing</p>
-  <h1 class="coming-title">Coming <span>Soon</span></h1>
-  <p class="coming-subtitle">Our merch shop is almost ready. Faith-filled pieces designed to represent your community wherever you go.</p>
-  <p class="coming-verse">"She is clothed with strength and dignity, and she laughs without fear of the future." — Proverbs 31:25</p>
-  <div class="notify-form">
-    <input type="email" class="notify-input" placeholder="Enter your email to be notified">
-    <button class="notify-btn">Notify Me</button>
+<!-- ANNOUNCEMENT -->
+<div class="announce" style="margin-top:72px;">
+  <p>✦ Free shipping on orders over <span>$50</span> · All proceeds support the C&C Ministry ✦</p>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <p class="hero-eyebrow">Shop the Collection</p>
+  <h2 class="hero-title">Wear Your <span>Faith</span></h2>
+  <p class="hero-subtitle">Every piece is a conversation starter, a reminder, and a declaration. Represent your community wherever you go.</p>
+  <div class="hero-tag">
+    <span><i class="fas fa-heart"></i> Faith-inspired</span>
+    <span><i class="fas fa-leaf"></i> Quality pieces</span>
+    <span><i class="fas fa-cross"></i> Ministry-funded</span>
   </div>
 </section>
 
+<!-- FILTERS -->
+<div class="filters-bar">
+  <span class="filter-label">Shop by:</span>
+  <button class="filter-btn active" data-filter="all">All Items</button>
+  <button class="filter-btn" data-filter="tops">Tops & Tees</button>
+  <button class="filter-btn" data-filter="hoodies">Hoodies & Sweatshirts</button>
+  <button class="filter-btn" data-filter="accessories">Accessories</button>
+  <button class="filter-btn" data-filter="drinkware">Drinkware</button>
+  <button class="filter-btn" data-filter="stationery">Stationery</button>
+</div>
+
+<!-- SHOP GRID -->
+<section class="shop">
+  <p class="shop-count">Showing <span id="countDisplay">9</span> items</p>
+  <div class="product-grid" id="productGrid">
+
+    <!-- Tee 1 -->
+    <div class="product-card" data-category="tops">
+      <div class="product-img" style="background:#E8F0E8;">
+        <span class="product-badge badge-popular">Popular</span>
+        <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 50 L20 65 L35 70 L35 130 L125 130 L125 70 L140 65 L120 50 L105 60 Q95 68 80 68 Q65 68 55 60 Z" fill="#6B8F6B" stroke="none"/>
+          <text x="80" y="102" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#FAF7F0" font-style="italic" font-weight="600">Christ &amp; Coffee</text>
+          <text x="80" y="116" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="7" fill="rgba(250,247,240,0.7)" letter-spacing="2">CONNECTICUT</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Classic C&C Tee</h3>
+        <p class="product-sub">Unisex · Soft cotton blend</p>
+        <div class="product-colors">
+          <div class="color-dot active" style="background:#6B8F6B;" title="Sage"></div>
+          <div class="color-dot" style="background:#FAF7F0;border:1.5px solid #ddd;" title="Cream"></div>
+          <div class="color-dot" style="background:#2C2C2C;" title="Black"></div>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">$28</span>
+          <button class="add-btn" onclick="addToCart('Classic C&C Tee')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tee 2 -->
+    <div class="product-card" data-category="tops">
+      <div class="product-img" style="background:#F5EFE8;">
+        <span class="product-badge badge-new">New</span>
+        <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M40 50 L20 65 L35 70 L35 130 L125 130 L125 70 L140 65 L120 50 L105 60 Q95 68 80 68 Q65 68 55 60 Z" fill="#C9A484" stroke="none"/>
+          <text x="80" y="96" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="#4A5E4A" font-style="italic">She is clothed in</text>
+          <text x="80" y="109" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="13" fill="#4A5E4A" font-weight="700" font-style="italic">Strength</text>
+          <text x="80" y="120" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="6.5" fill="#4A5E4A" letter-spacing="1.5">PROVERBS 31:25</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Strength Tee</h3>
+        <p class="product-sub">Women's fit · Proverbs 31:25</p>
+        <div class="product-colors">
+          <div class="color-dot active" style="background:#C9A484;" title="Sand"></div>
+          <div class="color-dot" style="background:#E8D5C4;" title="Blush"></div>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">$28</span>
+          <button class="add-btn" onclick="addToCart('Strength Tee')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hoodie 1 -->
+    <div class="product-card" data-category="hoodies">
+      <div class="product-img" style="background:#E4EBE4;">
+        <span class="product-badge badge-popular">Popular</span>
+        <svg width="170" height="160" viewBox="0 0 170 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M55 45 Q55 35 85 32 Q115 35 115 45 L130 55 L150 68 L135 75 L133 130 L37 130 L35 75 L20 68 L40 55 Z" fill="#4A5E4A" stroke="none"/>
+          <path d="M63 45 Q85 55 107 45 L107 130 L63 130 Z" fill="#3D4F3D" opacity="0.3"/>
+          <circle cx="85" cy="47" r="8" fill="#3D4F3D"/>
+          <text x="85" y="92" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#FAF7F0" font-style="italic" font-weight="600">C ✝ C</text>
+          <text x="85" y="106" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="6" fill="rgba(250,247,240,0.6)" letter-spacing="2">MINISTRY</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">C&C Pullover Hoodie</h3>
+        <p class="product-sub">Unisex · Heavyweight fleece</p>
+        <div class="product-colors">
+          <div class="color-dot active" style="background:#4A5E4A;" title="Forest"></div>
+          <div class="color-dot" style="background:#2C2C2C;" title="Black"></div>
+          <div class="color-dot" style="background:#8B6347;" title="Mocha"></div>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">$52</span>
+          <button class="add-btn" onclick="addToCart('C&C Pullover Hoodie')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hoodie 2 -->
+    <div class="product-card" data-category="hoodies">
+      <div class="product-img" style="background:#EDE8E0;">
+        <span class="product-badge badge-new">New</span>
+        <svg width="170" height="160" viewBox="0 0 170 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M55 45 Q55 35 85 32 Q115 35 115 45 L130 55 L150 68 L135 75 L133 130 L37 130 L35 75 L20 68 L40 55 Z" fill="#7B4F2E" stroke="none"/>
+          <circle cx="85" cy="47" r="8" fill="#6B3F22"/>
+          <text x="85" y="88" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="rgba(250,247,240,0.8)" font-style="italic">Kingdom</text>
+          <text x="85" y="102" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" fill="#FAF7F0" font-style="italic" font-weight="700">Woman</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Kingdom Woman Hoodie</h3>
+        <p class="product-sub">Women's fit · Cozy fleece</p>
+        <div class="product-colors">
+          <div class="color-dot active" style="background:#7B4F2E;" title="Mocha"></div>
+          <div class="color-dot" style="background:#6B8F6B;" title="Sage"></div>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">$52</span>
+          <button class="add-btn" onclick="addToCart('Kingdom Woman Hoodie')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mug -->
+    <div class="product-card" data-category="drinkware">
+      <div class="product-img" style="background:#F0EDE4;">
+        <span class="product-badge badge-popular">Popular</span>
+        <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="35" y="60" width="75" height="70" rx="6" fill="#FAF7F0" stroke="#C8D8C8" stroke-width="2"/>
+          <path d="M110 75 Q130 75 130 90 Q130 105 110 105" stroke="#C8D8C8" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <text x="73" y="96" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="#6B8F6B" font-style="italic" font-weight="600">Christ &amp;</text>
+          <text x="73" y="108" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="#6B8F6B" font-style="italic" font-weight="600">Coffee</text>
+          <!-- steam -->
+          <path d="M52 52 Q55 45 52 38" stroke="#C9A484" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M63 50 Q66 42 63 35" stroke="#C9A484" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M74 52 Q77 45 74 38" stroke="#C9A484" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">C&C Ceramic Mug</h3>
+        <p class="product-sub">11oz · Dishwasher safe</p>
+        <div class="product-colors">
+          <div class="color-dot active" style="background:#FAF7F0;border:1.5px solid #ddd;" title="Cream"></div>
+          <div class="color-dot" style="background:#6B8F6B;" title="Sage"></div>
+          <div class="color-dot" style="background:#2C2C2C;" title="Black"></div>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">$22</span>
+          <button class="add-btn" onclick="addToCart('C&C Ceramic Mug')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tumbler -->
+    <div class="product-card" data-category="drinkware">
+      <div class="product-img" style="background:#E4EBE4;">
+        <div class="product-badge badge-new">New</div>
+        <svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="32" y="25" width="56" height="110" rx="10" fill="#6B8F6B"/>
+          <rect x="32" y="20" width="56" height="16" rx="6" fill="#4A5E4A"/>
+          <rect x="38" y="130" width="44" height="10" rx="4" fill="#4A5E4A"/>
+          <text x="60" y="82" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="9" fill="#FAF7F0" font-style="italic" font-weight="600">C ✝ C</text>
+          <text x="60" y="95" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="5.5" fill="rgba(250,247,240,0.7)" letter-spacing="1.5">MINISTRY</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Insulated Tumbler</h3>
+        <p class="product-sub">20oz · Keeps drinks hot 6hrs</p>
+        <div class="product-colors">
+          <div class="color-dot active" style="background:#6B8F6B;" title="Sage"></div>
+          <div class="color-dot" style="background:#7B4F2E;" title="Mocha"></div>
+          <div class="color-dot" style="background:#2C2C2C;" title="Black"></div>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">$35</span>
+          <button class="add-btn" onclick="addToCart('Insulated Tumbler')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hat -->
+    <div class="product-card" data-category="accessories">
+      <div class="product-img" style="background:#EDE8E0;">
+        <span class="product-badge badge-limited">Limited</span>
+        <svg width="180" height="130" viewBox="0 0 180 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 80 Q90 40 150 80 L155 95 Q90 75 25 95 Z" fill="#4A5E4A" stroke="none"/>
+          <path d="M30 80 Q90 50 150 80 Q90 65 30 80 Z" fill="#3D4F3D"/>
+          <path d="M15 95 Q90 75 165 95 L163 100 Q90 82 17 100 Z" fill="#3D4F3D"/>
+          <text x="90" y="75" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="10" fill="#FAF7F0" font-style="italic" font-weight="600">C&amp;C</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Dad Hat</h3>
+        <p class="product-sub">Adjustable · One size fits most</p>
+        <div class="product-colors">
+          <div class="color-dot active" style="background:#4A5E4A;" title="Forest"></div>
+          <div class="color-dot" style="background:#C9A484;" title="Tan"></div>
+          <div class="color-dot" style="background:#2C2C2C;" title="Black"></div>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">$26</span>
+          <button class="add-btn" onclick="addToCart('Dad Hat')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Journal -->
+    <div class="product-card" data-category="stationery">
+      <div class="product-img" style="background:#F5EFE8;">
+        <span class="product-badge badge-new">New</span>
+        <svg width="130" height="160" viewBox="0 0 130 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="30" y="20" width="80" height="110" rx="4" fill="#6B8F6B"/>
+          <rect x="25" y="20" width="10" height="110" rx="3" fill="#4A5E4A"/>
+          <rect x="40" y="35" width="55" height="1.5" fill="rgba(250,247,240,0.25)"/>
+          <rect x="40" y="45" width="55" height="1.5" fill="rgba(250,247,240,0.25)"/>
+          <rect x="40" y="55" width="40" height="1.5" fill="rgba(250,247,240,0.25)"/>
+          <text x="68" y="85" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#FAF7F0" font-style="italic" font-weight="600">Faith</text>
+          <text x="68" y="99" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="11" fill="#FAF7F0" font-style="italic" font-weight="600">Journal</text>
+          <text x="68" y="112" text-anchor="middle" font-family="Montserrat, sans-serif" font-size="5.5" fill="rgba(250,247,240,0.6)" letter-spacing="1.5">C ✝ C</text>
+        </svg>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">C&C Faith Journal</h3>
+        <p class="product-sub">160 pages · Lined & dotted</p>
+        <div class="product-colors">
+          <div class="color-dot active" style="background:#6B8F6B;" title="Sage"></div>
+          <div class="color-dot" style="background:#7B4F2E;" title="Brown"></div>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">$18</span>
+          <button class="add-btn" onclick="addToCart('C&C Faith Journal')"><i class="fas fa-plus"></i> Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="coming-soon-card">
+      <i class="fas fa-sparkles"></i>
+      <h4>More Coming Soon</h4>
+      <p>New drops are in the works. Drop your email to be the first to know!</p>
+      <form action="https://formspree.io/f/maqayzjv" method="POST" style="margin-top:20px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <input type="hidden" name="_subject" value="Notify me about new merch!">
+        <input type="email" name="email" placeholder="your@email.com" required style="padding:12px 20px;border:1.5px solid #ccc;border-radius:50px;font-size:13px;outline:none;min-width:220px;">
+        <button type="submit" style="padding:12px 28px;background:var(--sage);color:var(--cream);border:none;border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;cursor:pointer;">Notify Me</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- VERSE BREAK -->
+<div class="verse-break">
+  <blockquote>
+    "She is clothed with strength and dignity, and she laughs without fear of the future."
+    <cite>— Proverbs 31:25</cite>
+  </blockquote>
+</div>
+
+<!-- BUNDLES -->
+<section class="bundles">
+  <p class="section-eyebrow">Save More</p>
+  <h2 class="section-title">Gift & Bundle Sets</h2>
+  <p class="section-sub">Perfect for birthdays, baby showers, or just blessing a sister in your life.</p>
+  <div class="bundles-grid">
+
+    <div class="bundle-card">
+      <span class="bundle-icon">☕</span>
+      <h3 class="bundle-name">Coffee & Faith Starter</h3>
+      <ul class="bundle-includes">
+        <li>Classic C&C Tee</li>
+        <li>C&C Ceramic Mug</li>
+        <li>C&C Faith Journal</li>
+      </ul>
+      <div class="bundle-price">$60</div>
+      <div class="bundle-savings">Valued at $68</div>
+      <button class="bundle-btn" onclick="addToCart('Coffee & Faith Starter Bundle')">Add Bundle</button>
+    </div>
+
+    <div class="bundle-card featured">
+      <div class="bundle-featured-tag">Best Value</div>
+      <span class="bundle-icon">👑</span>
+      <h3 class="bundle-name">Kingdom Woman Set</h3>
+      <ul class="bundle-includes">
+        <li>Kingdom Woman Hoodie</li>
+        <li>Strength Tee</li>
+        <li>Insulated Tumbler</li>
+        <li>C&C Faith Journal</li>
+        <li>Dad Hat</li>
+      </ul>
+      <div class="bundle-price">$135</div>
+      <div class="bundle-savings">Valued at $159</div>
+      <button class="bundle-btn" onclick="addToCart('Kingdom Woman Bundle')">Add Bundle</button>
+    </div>
+
+    <div class="bundle-card">
+      <span class="bundle-icon">🎁</span>
+      <h3 class="bundle-name">Gift Her Well</h3>
+      <ul class="bundle-includes">
+        <li>Strength Tee</li>
+        <li>C&C Ceramic Mug</li>
+        <li>C&C Faith Journal</li>
+        <li>Gift wrap included</li>
+      </ul>
+      <div class="bundle-price">$62</div>
+      <div class="bundle-savings">Valued at $68</div>
+      <button class="bundle-btn" onclick="addToCart('Gift Her Well Bundle')">Add Bundle</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- SHIPPING INFO -->
+<section class="shipping">
+  <p class="section-eyebrow" style="color:var(--brown);">Order Info</p>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,3.5vw,48px);font-weight:600;color:var(--sage-dark);line-height:1.1;">Everything You Need to Know</h2>
+  <div class="shipping-grid">
+    <div class="shipping-item">
+      <i class="fas fa-truck"></i>
+      <h4>Free Shipping</h4>
+      <p>Free standard shipping on all orders over $50 within the US.</p>
+    </div>
+    <div class="shipping-item">
+      <i class="fas fa-undo"></i>
+      <h4>Easy Returns</h4>
+      <p>Not the right fit? Returns accepted within 30 days of delivery.</p>
+    </div>
+    <div class="shipping-item">
+      <i class="fas fa-heart"></i>
+      <h4>Ministry Funded</h4>
+      <p>Every purchase directly supports the C&C Ministry and its programs.</p>
+    </div>
+    <div class="shipping-item">
+      <i class="fas fa-envelope"></i>
+      <h4>Questions?</h4>
+      <p>Email us anytime. We're here to help and respond within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE BANNER -->
+<section class="donate-banner">
+  <h2 class="donate-title">Christ and Coffee has always been free.</h2>
+  <p class="donate-text">Your merch purchase already helps — but if God puts it on your heart to give directly to the ministry, we'd be so grateful.</p>
+  <a href="donate_9.html" class="donate-btn">Support the Ministry</a>
+</section>
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-logo">Christ and Coffee</div>
   <p class="footer-verse">"Charm is deceptive, and beauty is fleeting; but a woman who fears the LORD is to be praised." — Proverbs 31:30</p>
@@ -306,7 +1099,7 @@ footer {
     <a href="index.html">Home</a>
     <a href="christandcoffee_about_FIX.html">About</a>
     <a href="programs_events_7.html">Programs & Events</a>
-    <a href="kingdom-business.html">Kingdom Business</a>
+    <a href="the-network.html">The Network</a>
     <a href="merch.html">Merch</a>
     <a href="donate_9.html">Donate</a>
     <a href="index.html#contact">Contact</a>
@@ -318,5 +1111,56 @@ footer {
   <p class="footer-copy">© 2025 Christ and Coffee LLC · Connecticut · All Rights Reserved</p>
 </footer>
 
+<!-- CART TOAST -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span id="toastMsg">Added to cart!</span>
+</div>
+
+<script>
+// Filter logic
+const filterBtns = document.querySelectorAll('.filter-btn');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    filterProducts();
+  });
+});
+
+function filterProducts() {
+  const activeFilter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
+  const cards = document.querySelectorAll('.product-card');
+  let visible = 0;
+  cards.forEach(card => {
+    const cat = card.dataset.category;
+    if (activeFilter === 'all' || cat === activeFilter) {
+      card.style.display = '';
+      visible++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.getElementById('countDisplay').textContent = visible;
+}
+
+// Color dot selection
+document.querySelectorAll('.product-colors').forEach(group => {
+  group.querySelectorAll('.color-dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      group.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  });
+});
+
+// Toast notification
+function addToCart(name) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = `"${name}" added to cart!`;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+</script>
 </body>
 </html>
