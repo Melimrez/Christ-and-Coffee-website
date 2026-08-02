@@ -83,6 +83,12 @@
  opacity: 1!important;
  }
 
+.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; z-index: 200; }
+.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--sage-dark); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
  /* ── HERO BANNER ── */
 .page-hero {
  background: var(--cream-alt);
@@ -436,7 +442,7 @@
 
  /* ── MEET THE FOUNDER ── */
 .founder {
- background: var(--sage);
+ background: var(--cream-alt);
  padding: 100px 48px;
  }
 
@@ -456,18 +462,18 @@
 .founder-photo {
  width: 100%;
  aspect-ratio: 3/4;
- background: rgba(250,247,240,0.1);
+ background: rgba(74,94,74,0.06);
  border-radius: 4px;
  display: flex;
  align-items: center;
  justify-content: center;
- border: 1px solid rgba(250,247,240,0.2);
+ border: 1px solid rgba(74,94,74,0.15);
  overflow: hidden;
  }
 
 .founder-photo-placeholder {
  text-align: center;
- color: rgba(250,247,240,0.4);
+ color: rgba(74,94,74,0.5);
  font-family: 'Cormorant Garamond', serif;
  font-size: 18px;
  font-style: italic;
@@ -499,7 +505,7 @@
  font-size: 10px;
  letter-spacing: 4px;
  text-transform: uppercase;
- color: var(--lime);
+ color: var(--brown);
  font-weight: 600;
  margin-bottom: 16px;
  }
@@ -508,7 +514,7 @@
  font-family: 'Cormorant Garamond', serif;
  font-size: clamp(36px, 4vw, 52px);
  font-weight: 600;
- color: var(--cream);
+ color: var(--sage-dark);
  line-height: 1.1;
  margin-bottom: 8px;
  }
@@ -517,7 +523,7 @@
  font-size: 12px;
  letter-spacing: 2px;
  text-transform: uppercase;
- color: var(--brown-light);
+ color: var(--brown);
  font-weight: 500;
  margin-bottom: 32px;
  }
@@ -697,6 +703,30 @@
  from { opacity: 0; transform: translateY(20px); }
  to { opacity: 1; transform: translateY(0); }
  }
+
+ @media (max-width: 900px) {
+ nav { padding: 0 24px; }
+ .nav-toggle { display: flex; }
+ .nav-links { position: fixed; top: 72px; left: 0; right: 0; background: var(--cream-alt); flex-direction: column; gap: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+ .nav-links.open { max-height: 500px; }
+ .nav-links li { width: 100%; }
+ .nav-links a { display: block; padding: 16px 24px; width: 100%; opacity: 1; }
+ .nav-btn { display: inline-block; margin: 4px 24px 16px; text-align: center; }
+
+ .page-hero { padding: 120px 24px 70px; }
+ .story-grid { grid-template-columns: 1fr !important; gap: 48px !important; padding: 60px 24px !important; }
+ .mission, .values, .different, .founder-section, .cta { padding: 60px 24px !important; }
+ .values-grid { grid-template-columns: repeat(2, 1fr); }
+ .different-inner { grid-template-columns: 1fr; gap: 40px; }
+ .different-stats { grid-template-columns: 1fr 1fr; }
+ .founder-flex { flex-direction: column !important; gap: 40px !important; }
+ .founder-photo-col { flex: none !important; width: 100% !important; }
+ footer { padding: 48px 24px 32px; }
+ }
+
+ @media (max-width: 520px) {
+ .values-grid { grid-template-columns: 1fr; }
+ }
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -705,6 +735,9 @@
 <!-- NAV -->
 <nav>
  <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+ <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open'); this.classList.toggle('active');">
+   <span></span><span></span><span></span>
+ </button>
  <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="christandcoffee_about_FIX.html" style="color:var(--lime);opacity:1;">About</a></li>
@@ -729,7 +762,7 @@
 
 <!-- STORY -->
 <section style="background:var(--cream);">
-  <div style="max-width:1200px;margin:0 auto;padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+  <div class="story-grid" style="max-width:1200px;margin:0 auto;padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
     <!-- Image Column -->
     <div style="position:relative;">
       <div style="width:100%;aspect-ratio:4/5;border-radius:4px;background:var(--cream-alt);border:2px solid var(--sage);box-sizing:border-box;padding:32px;">
@@ -832,11 +865,11 @@
 </section>
 
 <!-- MEET THE FOUNDER -->
-<section style="background:var(--cream-alt);padding:100px 48px;">
-  <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:row;gap:80px;align-items:flex-start;">
-    
+<section class="founder-section" style="background:var(--cream-alt);padding:100px 48px;">
+  <div class="founder-flex" style="max-width:1100px;margin:0 auto;display:flex;flex-direction:row;gap:80px;align-items:flex-start;">
+
     <!-- Photo Column -->
-    <div style="flex:0 0 420px;min-width:0;">
+    <div class="founder-photo-col" style="flex:0 0 420px;min-width:0;">
       <div style="border-radius:4px;overflow:hidden;aspect-ratio:3/4;">
         <img src="founder_photo.jpg" alt="Bible and coffee by the ocean" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
       <div style="margin-top:24px;text-align:center;">

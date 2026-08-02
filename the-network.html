@@ -68,6 +68,11 @@ nav {
   transition: opacity 0.2s;
 }
 .nav-links a:hover { opacity: 1; }
+.nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; z-index: 200; }
+.nav-toggle span { display: block; width: 100%; height: 2px; background: var(--sage-dark); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+.nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 .nav-btn {
   background: var(--lime);
   color: var(--sage-dark)!important;
@@ -688,7 +693,12 @@ footer {
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   nav { padding: 0 24px; }
-  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-links { position: fixed; top: 72px; left: 0; right: 0; background: var(--cream-alt); flex-direction: column; gap: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+  .nav-links.open { max-height: 500px; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 16px 24px; width: 100%; opacity: 1; }
+  .nav-btn { display: inline-block; margin: 4px 24px 16px; text-align: center; }
   .business-grid { grid-template-columns: 1fr 1fr; }
   .cta-grid { grid-template-columns: 1fr; }
   .filters-bar { padding: 24px; }
@@ -711,6 +721,9 @@ footer {
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open'); this.classList.toggle('active');">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="christandcoffee_about_FIX.html">About</a></li>
