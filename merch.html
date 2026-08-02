@@ -14,32 +14,32 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--sage-dark); }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: var(--sage-dark); }
-    .nav-logo { font-family: "Cormorant Garamond", serif; font-size: 22px; font-weight: 600; color: var(--cream); text-decoration: none; }
-    .nav-logo span { color: var(--brown-light); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 72px; background: var(--cream-alt); }
+    .nav-logo { font-family: "Cormorant Garamond", serif; font-size: 22px; font-weight: 600; color: var(--sage); text-decoration: none; }
+    .nav-logo span { color: var(--brown); }
     .nav-links { display: flex; list-style: none; gap: 32px; }
-    .nav-links a { color: var(--cream); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; }
+    .nav-links a { color: var(--sage); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; }
     .nav-links a:hover { opacity: 1; }
     .nav-btn { background: var(--lime); color: var(--sage-dark) !important; padding: 10px 24px; border-radius: 50px; font-weight: 600 !important; opacity: 1 !important; }
-    .coming-soon { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 48px 80px; background: var(--sage-dark); }
+    .coming-soon { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 48px 80px; background: var(--cream); }
     .coffee-cup { font-size: 80px; margin-bottom: 32px; animation: float 3s ease-in-out infinite; }
     @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
-    .coming-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 20px; }
-    .coming-title { font-family: "Cormorant Garamond", serif; font-size: clamp(52px, 8vw, 96px); font-weight: 700; color: var(--cream); line-height: 1; margin-bottom: 24px; }
-    .coming-title span { color: var(--lime); }
-    .coming-subtitle { font-size: 15px; color: rgba(250,247,240,0.7); font-weight: 300; line-height: 1.9; max-width: 480px; margin-bottom: 32px; }
-    .coming-verse { font-family: "Cormorant Garamond", serif; font-size: 18px; font-style: italic; color: var(--brown-light); margin-bottom: 48px; max-width: 500px; }
+    .coming-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--brown); font-weight: 600; margin-bottom: 20px; }
+    .coming-title { font-family: "Cormorant Garamond", serif; font-size: clamp(52px, 8vw, 96px); font-weight: 700; color: var(--sage); line-height: 1; margin-bottom: 24px; }
+    .coming-title span { color: var(--brown); }
+    .coming-subtitle { font-size: 15px; color: rgba(44,44,44,0.7); font-weight: 300; line-height: 1.9; max-width: 480px; margin-bottom: 32px; }
+    .coming-verse { font-family: "Cormorant Garamond", serif; font-size: 18px; font-style: italic; color: var(--brown); margin-bottom: 48px; max-width: 500px; }
     .notify-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .notify-input { padding: 14px 24px; border: 1.5px solid rgba(250,247,240,0.3); border-radius: 50px; background: transparent; color: var(--cream); font-size: 13px; font-family: "Montserrat", sans-serif; outline: none; min-width: 260px; }
-    .notify-input::placeholder { color: rgba(250,247,240,0.4); }
+    .notify-input { padding: 14px 24px; border: 1.5px solid rgba(74,94,74,0.3); border-radius: 50px; background: transparent; color: var(--sage); font-size: 13px; font-family: "Montserrat", sans-serif; outline: none; min-width: 260px; }
+    .notify-input::placeholder { color: rgba(74,94,74,0.5); }
     .notify-btn { padding: 14px 32px; background: var(--lime); color: var(--sage-dark); border: none; border-radius: 50px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; cursor: pointer; font-family: "Montserrat", sans-serif; }
-    footer { background: var(--sage-dark); padding: 60px 48px 40px; text-align: center; border-top: 1px solid rgba(250,247,240,0.1); }
-    .footer-logo { font-family: "Cormorant Garamond", serif; font-size: 28px; font-weight: 600; color: var(--cream); margin-bottom: 20px; }
-    .footer-verse { font-family: "Cormorant Garamond", serif; font-size: 15px; font-style: italic; color: rgba(250,247,240,0.6); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    footer { background: var(--cream-alt); padding: 60px 48px 40px; text-align: center; border-top: 1px solid rgba(74,94,74,0.15); }
+    .footer-logo { font-family: "Cormorant Garamond", serif; font-size: 28px; font-weight: 600; color: var(--sage); margin-bottom: 20px; }
+    .footer-verse { font-family: "Cormorant Garamond", serif; font-size: 15px; font-style: italic; color: rgba(74,94,74,0.65); margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
     .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
-    .footer-links a { color: rgba(250,247,240,0.6); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
-    .footer-links a:hover { color: var(--cream); }
-    .footer-copy { font-size: 11px; color: rgba(250,247,240,0.3); letter-spacing: 1px; }
+    .footer-links a { color: rgba(74,94,74,0.65); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+    .footer-links a:hover { color: var(--sage); }
+    .footer-copy { font-size: 11px; color: rgba(74,94,74,0.45); letter-spacing: 1px; }
   </style>
 </head>
 <body>

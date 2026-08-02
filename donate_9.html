@@ -26,30 +26,30 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0;
-    background: var(--sage); z-index: 100;
+    background: var(--cream-alt); z-index: 100;
     padding: 0 48px; height: 72px;
     display: flex; align-items: center; justify-content: space-between;
     box-shadow: 0 2px 20px rgba(0,0,0,0.15);
   }
-  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--cream); letter-spacing: 1px; font-style: italic; }
-  .nav-logo span { color: var(--brown-light); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--sage-dark); letter-spacing: 1px; font-style: italic; }
+  .nav-logo span { color: var(--brown); }
   .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { color: var(--cream); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.2s; }
+  .nav-links a { color: var(--sage-dark); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.2s; }
   .nav-links a:hover { opacity: 1; }
   .nav-btn { background: var(--lime); color: var(--sage-dark) !important; padding: 10px 22px; border-radius: 50px; font-weight: 600 !important; opacity: 1 !important; }
 
   /* ── HERO ── */
   .page-hero {
-    background: var(--sage); padding: 160px 48px 100px; text-align: center; position: relative; overflow: hidden;
+    background: var(--cream-alt); padding: 160px 48px 100px; text-align: center; position: relative; overflow: hidden;
   }
   .page-hero::before {
     content: ''; position: absolute; inset: 0;
     background: radial-gradient(ellipse at 20% 50%, rgba(168,200,74,0.07) 0%, transparent 60%),
                 radial-gradient(ellipse at 80% 80%, rgba(123,79,46,0.08) 0%, transparent 50%);
   }
-  .page-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--lime); font-weight: 600; margin-bottom: 20px; }
-  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 7vw, 90px); font-weight: 600; color: var(--cream); line-height: 1; margin-bottom: 24px; }
-  .page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 24px); color: var(--cream); opacity: 0.8; font-style: italic; font-weight: 300; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+  .page-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--brown); font-weight: 600; margin-bottom: 20px; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 7vw, 90px); font-weight: 600; color: var(--sage-dark); line-height: 1; margin-bottom: 24px; }
+  .page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 24px); color: var(--sage-dark); opacity: 0.8; font-style: italic; font-weight: 300; max-width: 600px; margin: 0 auto; line-height: 1.6; }
 
   /* ── HEART SECTION ── */
   .heart-section {
@@ -92,7 +92,7 @@
 
   /* ── WHAT YOUR GIFT DOES ── */
   .impact {
-    background: var(--sage);
+    background: var(--cream-alt);
     padding: 100px 48px;
     text-align: center;
   }
@@ -100,7 +100,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(36px, 4vw, 52px);
     font-weight: 600;
-    color: var(--cream);
+    color: var(--sage-dark);
     margin-bottom: 56px;
   }
   .impact-grid {
@@ -111,8 +111,8 @@
     margin: 0 auto;
   }
   .impact-card {
-    background: rgba(250,247,240,0.08);
-    border: 1px solid rgba(250,247,240,0.15);
+    background: rgba(74,94,74,0.06);
+    border: 1px solid rgba(74,94,74,0.15);
     border-radius: 4px;
     padding: 40px 28px;
     text-align: center;
@@ -121,7 +121,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 52px;
     font-weight: 700;
-    color: var(--lime);
+    color: var(--sage-dark);
     line-height: 1;
     margin-bottom: 8px;
   }
@@ -129,14 +129,14 @@
     font-size: 10px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(250,247,240,0.5);
+    color: rgba(44,44,44,0.6);
     font-weight: 500;
     margin-bottom: 20px;
   }
   .impact-text {
     font-size: 13px;
     line-height: 1.8;
-    color: rgba(250,247,240,0.75);
+    color: rgba(44,44,44,0.7);
     font-weight: 300;
   }
 
@@ -237,7 +237,7 @@
   }
 
   /* ── FOOTER ── */
-  footer { background: var(--sage-dark); padding: 60px 48px 40px; text-align: center; }
+  footer { background: var(--cream-alt); padding: 60px 48px 40px; text-align: center; }
   .amt-btn {
     background: transparent;
     border: 1.5px solid var(--sage-light);
@@ -363,30 +363,30 @@
   </div>
 
 <!-- GIVE ANY AMOUNT -->
-<section style="background:var(--sage-dark);padding:80px 48px;text-align:center;">
-  <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--lime);font-weight:600;margin-bottom:20px;">Give From the Heart</p>
-  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:600;color:var(--cream);margin-bottom:24px;">Every Gift Is a Seed</h2>
-  <p style="font-size:15px;color:rgba(250,247,240,0.8);font-weight:300;line-height:1.9;max-width:580px;margin:0 auto 32px;">Christ and Coffee has always been free — and it always will be. But behind every meetup, every Bible study, every woman who walks through the door and finds her people, there are real costs. If God is nudging your heart today, don't ignore it. You don't have to give big to make a difference. A little, given cheerfully, goes a long way in His hands.</p>
-  <blockquote style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--brown-light);margin:0 auto 40px;max-width:540px;line-height:1.7;">"Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously." — 2 Corinthians 9:6</blockquote>
+<section style="background:var(--cream-alt);padding:80px 48px;text-align:center;">
+  <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--brown);font-weight:600;margin-bottom:20px;">Give From the Heart</p>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:600;color:var(--sage-dark);margin-bottom:24px;">Every Gift Is a Seed</h2>
+  <p style="font-size:15px;color:rgba(44,44,44,0.75);font-weight:300;line-height:1.9;max-width:580px;margin:0 auto 32px;">Christ and Coffee has always been free — and it always will be. But behind every meetup, every Bible study, every woman who walks through the door and finds her people, there are real costs. If God is nudging your heart today, don't ignore it. You don't have to give big to make a difference. A little, given cheerfully, goes a long way in His hands.</p>
+  <blockquote style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--brown);margin:0 auto 40px;max-width:540px;line-height:1.7;">"Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously." — 2 Corinthians 9:6</blockquote>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-    <a href="https://www.paypal.biz/christandcoffee" target="_blank" style="padding:14px 32px;background:var(--lime);color:var(--sage-dark);border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;">Give via PayPal</a>
-    <a href="https://venmo.com/christandcoffee25" target="_blank" style="padding:14px 32px;background:transparent;color:var(--lime);border:2px solid var(--lime);border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;">Give via Venmo</a>
+    <a href="https://www.paypal.biz/christandcoffee" target="_blank" style="padding:14px 32px;background:var(--sage-dark);color:var(--cream);border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;">Give via PayPal</a>
+    <a href="https://venmo.com/christandcoffee25" target="_blank" style="padding:14px 32px;background:transparent;color:var(--sage-dark);border:2px solid var(--sage-dark);border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;">Give via Venmo</a>
   </div>
 </section>
 
-<footer style="background:var(--sage-dark);padding:60px 48px 40px;text-align:center;border-top:1px solid rgba(250,247,240,0.1);">
-  <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--cream);margin-bottom:16px;">Christ and Coffee</div>
-  <p style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(250,247,240,0.6);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." — 2 Corinthians 9:7</p>
+<footer style="background:var(--cream-alt);padding:60px 48px 40px;text-align:center;border-top:1px solid rgba(74,94,74,0.15);">
+  <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--sage-dark);margin-bottom:16px;">Christ and Coffee</div>
+  <p style="font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(74,94,74,0.7);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;">"Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion, for God loves a cheerful giver." — 2 Corinthians 9:7</p>
   <div style="display:flex;justify-content:center;gap:32px;margin-bottom:32px;flex-wrap:wrap;">
-    <a href="index.html" style="color:rgba(250,247,240,0.6);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Home</a>
-    <a href="christandcoffee_about_FIX.html" style="color:rgba(250,247,240,0.6);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">About</a>
-    <a href="programs_events_7.html" style="color:rgba(250,247,240,0.6);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Programs &amp; Events</a>
-    <a href="the-network.html" style="color:rgba(250,247,240,0.6);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">The Network</a>
-    <a href="merch.html" style="color:rgba(250,247,240,0.6);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Merch</a>
-    <a href="donate_9.html" style="color:rgba(250,247,240,0.6);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Donate</a>
-    <a href="index.html#contact" style="color:rgba(250,247,240,0.6);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Contact</a>
+    <a href="index.html" style="color:rgba(74,94,74,0.65);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Home</a>
+    <a href="christandcoffee_about_FIX.html" style="color:rgba(74,94,74,0.65);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">About</a>
+    <a href="programs_events_7.html" style="color:rgba(74,94,74,0.65);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Programs &amp; Events</a>
+    <a href="the-network.html" style="color:rgba(74,94,74,0.65);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">The Network</a>
+    <a href="merch.html" style="color:rgba(74,94,74,0.65);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Merch</a>
+    <a href="donate_9.html" style="color:rgba(74,94,74,0.65);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Donate</a>
+    <a href="index.html#contact" style="color:rgba(74,94,74,0.65);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;">Contact</a>
   </div>
-  <p style="font-size:11px;color:rgba(250,247,240,0.3);letter-spacing:1px;">© 2025 Christ and Coffee LLC · Connecticut · All Rights Reserved</p>
+  <p style="font-size:11px;color:rgba(74,94,74,0.45);letter-spacing:1px;">© 2025 Christ and Coffee LLC · Connecticut · All Rights Reserved</p>
 </footer>
 
 </body>

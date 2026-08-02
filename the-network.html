@@ -33,7 +33,7 @@ body {
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
-  background: var(--sage);
+  background: var(--cream-alt);
   z-index: 100;
   padding: 0 48px;
   height: 72px;
@@ -46,19 +46,19 @@ nav {
   font-family: 'Cormorant Garamond', serif;
   font-size: 28px;
   font-weight: 600;
-  color: var(--cream);
+  color: var(--sage-dark);
   letter-spacing: 1px;
   font-style: italic;
   text-decoration: none;
 }
-.nav-logo span { color: var(--brown-light); }
+.nav-logo span { color: var(--brown); }
 .nav-links {
   display: flex;
   gap: 36px;
   list-style: none;
 }
 .nav-links a {
-  color: var(--cream);
+  color: var(--sage-dark);
   text-decoration: none;
   font-size: 11px;
   font-weight: 500;
@@ -80,7 +80,7 @@ nav {
 /* ── PAGE HERO ── */
 .page-hero {
   min-height: 52vh;
-  background: var(--sage);
+  background: var(--cream-alt);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,7 +101,7 @@ nav {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--lime);
+  color: var(--brown);
   font-weight: 500;
   margin-bottom: 20px;
   animation: fadeUp 0.8s ease both;
@@ -110,17 +110,17 @@ nav {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(48px, 7vw, 86px);
   font-weight: 600;
-  color: var(--cream);
+  color: var(--sage-dark);
   line-height: 1.05;
   letter-spacing: -1px;
   margin-bottom: 20px;
   animation: fadeUp 0.8s 0.1s ease both;
 }
-.hero-title span { color: var(--brown-light); }
+.hero-title span { color: var(--brown); }
 .hero-subtitle {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(16px, 2vw, 22px);
-  color: var(--cream);
+  color: var(--sage-dark);
   opacity: 0.85;
   font-style: italic;
   font-weight: 300;
@@ -379,6 +379,16 @@ nav {
   transition: opacity 0.2s;
 }
 .biz-view-btn:hover { opacity: 0.7; }
+.biz-link {
+  color: var(--sage-dark);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.biz-link:hover { color: var(--brown); text-decoration: underline; }
 
 /* ── NO RESULTS ── */
 .no-results {
@@ -398,7 +408,7 @@ nav {
 
 /* ── LIST YOUR BUSINESS CTA ── */
 .list-cta {
-  background: var(--sage);
+  background: var(--cream-alt);
   padding: 100px 48px;
   text-align: center;
   position: relative;
@@ -416,7 +426,7 @@ nav {
   font-size: 10px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--lime);
+  color: var(--brown);
   font-weight: 600;
   margin-bottom: 16px;
 }
@@ -424,14 +434,14 @@ nav {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(36px, 4vw, 56px);
   font-weight: 600;
-  color: var(--cream);
+  color: var(--sage-dark);
   margin-bottom: 20px;
   line-height: 1.1;
 }
 .list-cta p {
   font-size: 15px;
   line-height: 1.9;
-  color: rgba(250,247,240,0.75);
+  color: rgba(44,44,44,0.7);
   font-weight: 300;
   max-width: 600px;
   margin: 0 auto 48px;
@@ -444,8 +454,8 @@ nav {
   margin: 0 auto 52px;
 }
 .cta-step {
-  background: rgba(250,247,240,0.07);
-  border: 1px solid rgba(250,247,240,0.12);
+  background: rgba(74,94,74,0.06);
+  border: 1px solid rgba(74,94,74,0.12);
   border-radius: 6px;
   padding: 32px 24px;
 }
@@ -467,12 +477,12 @@ nav {
   font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
   font-weight: 600;
-  color: var(--cream);
+  color: var(--sage-dark);
   margin-bottom: 8px;
 }
 .cta-step p {
   font-size: 12px;
-  color: rgba(250,247,240,0.65);
+  color: rgba(44,44,44,0.65);
   line-height: 1.7;
   margin: 0;
 }
@@ -625,8 +635,8 @@ nav {
 
 /* ── FOOTER ── */
 footer {
-  background: var(--sage-dark);
-  color: var(--cream);
+  background: var(--cream-alt);
+  color: var(--sage-dark);
   text-align: center;
   padding: 60px 48px 40px;
 }
@@ -655,14 +665,14 @@ footer {
   margin-bottom: 24px;
 }
 .footer-links a {
-  color: rgba(250,247,240,0.5);
+  color: rgba(74,94,74,0.7);
   text-decoration: none;
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
   transition: opacity 0.2s;
 }
-.footer-links a:hover { color: var(--cream); }
+.footer-links a:hover { color: var(--sage-dark); }
 .footer-copy {
   font-size: 11px;
   opacity: 0.4;
