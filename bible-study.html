@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="theme-color" content="#4A5E4A">
+<title>Bible Study Series — Christ and Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --sage: #6B8F6B;
+    --sage-dark: #4A5E4A;
+    --sage-light: #C8D8C8;
+    --cream: #FAF7F0;
+    --cream-alt: #F0EDE4;
+    --brown: #7B4F2E;
+    --brown-light: #C9A484;
+    --lime: #A8C84A;
+    --text-dark: #2C2C2C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: var(--cream-alt); z-index: 100;
+    padding: 0 48px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  }
+  .nav-logo { text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--sage-dark); letter-spacing: 1px; font-style: italic; }
+  .nav-logo span { color: var(--brown); }
+  .nav-links { display: flex; gap: 30px; list-style: none; align-items: center; }
+  .nav-links a { color: var(--sage-dark); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.2s; }
+  .nav-links a:hover, .nav-links a.active { opacity: 1; }
+  .nav-links a.active { border-bottom: 1px solid var(--lime); padding-bottom: 2px; }
+  .nav-btn { background: var(--lime); color: var(--sage-dark) !important; padding: 10px 22px; border-radius: 50px; font-weight: 600 !important; opacity: 1 !important; }
+  .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; z-index: 200; }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--sage-dark); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.active span:nth-child(2) { opacity: 0; }
+  .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    .nav-toggle { display: flex; }
+    .nav-links { position: fixed; top: 72px; left: 0; right: 0; background: var(--cream-alt); flex-direction: column; gap: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.08); align-items: stretch; }
+    .nav-links.open { max-height: 600px; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 16px 24px; width: 100%; opacity: 1; }
+  }
+
+  main { padding-top: 72px; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--cream-alt); padding: 140px 48px 80px; text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(168,200,74,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(123,79,46,0.09) 0%, transparent 50%);
+  }
+  .hero-eyebrow { position: relative; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--brown); font-weight: 600; margin-bottom: 18px; }
+  .hero-title { position: relative; font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 6vw, 62px); font-weight: 600; color: var(--sage-dark); line-height: 1.1; margin-bottom: 20px; max-width: 780px; margin-left: auto; margin-right: auto; }
+  .hero-verse { position: relative; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(17px, 2vw, 21px); color: var(--sage-dark); opacity: 0.8; max-width: 560px; margin: 0 auto 32px; line-height: 1.6; }
+  .hero-cta-row { position: relative; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 15px 34px; border-radius: 50px; font-weight: 600; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: var(--lime); color: var(--sage-dark); }
+  .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-outline { background: transparent; color: var(--sage-dark); border: 1.5px solid var(--sage-dark); }
+  .btn-outline:hover { background: var(--sage-dark); color: var(--cream); }
+
+  /* ── ABOUT SECTION ── */
+  .about { background: var(--cream); padding: 90px 48px; }
+  .about-inner { max-width: 780px; margin: 0 auto; text-align: center; }
+  .section-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; color: var(--brown); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(32px, 4vw, 46px); font-weight: 600; line-height: 1.15; margin-bottom: 24px; color: var(--sage-dark); }
+  .about-text { font-size: 16px; line-height: 1.85; opacity: 0.85; margin-bottom: 20px; }
+
+  .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; max-width: 900px; margin: 56px auto 0; }
+  .pillar { background: var(--cream-alt); border-radius: 4px; padding: 36px 28px; text-align: left; }
+  .pillar-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+  .pillar h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--sage-dark); margin-bottom: 10px; font-weight: 600; }
+  .pillar p { font-size: 14px; line-height: 1.65; opacity: 0.8; }
+
+  /* ── DETAILS ── */
+  .details { background: var(--cream-alt); padding: 90px 48px; }
+  .details-inner { max-width: 700px; margin: 0 auto; }
+  .details-card { background: var(--cream); border-radius: 8px; padding: 48px; box-shadow: 0 20px 50px rgba(74,94,74,0.1); text-align: center; }
+  .details-card h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 34px); font-weight: 600; color: var(--sage-dark); margin-bottom: 18px; }
+  .details-list { list-style: none; text-align: left; max-width: 420px; margin: 0 auto 28px; }
+  .details-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 15px; line-height: 1.7; opacity: 0.9; margin-bottom: 14px; }
+  .details-list i { color: var(--sage); width: 18px; margin-top: 4px; flex-shrink: 0; }
+  .details-note { font-size: 13.5px; line-height: 1.8; opacity: 0.75; background: var(--cream-alt); border-radius: 6px; padding: 18px 22px; margin-top: 8px; }
+  .details-actions { margin-top: 28px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  @media (max-width: 720px) {
+    .pillars { grid-template-columns: 1fr; }
+    .hero { padding: 120px 24px 60px; }
+    .about, .details { padding: 64px 24px; }
+    .details-card { padding: 32px 24px; }
+  }
+
+  footer { background: var(--sage-dark); color: var(--cream); text-align: center; padding: 48px 24px; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 22px; margin-bottom: 8px; }
+  .footer-verse { font-family: 'Cormorant Garamond', serif; font-style: italic; opacity: 0.8; font-size: 14px; margin-bottom: 18px; }
+  .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 16px; }
+  .footer-links a { color: var(--cream); text-decoration: none; font-size: 11px; letter-spacing: 1px; opacity: 0.75; }
+  .footer-copy { font-size: 11px; opacity: 0.55; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open'); this.classList.toggle('active');">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="christandcoffee_about_FIX.html">About</a></li>
+    <li><a href="programs_events_7.html" class="active">Programs &amp; Events</a></li>
+    <li><a href="temple-wellness.html">Temple Wellness</a></li>
+    <li><a href="the-network.html">The Network</a></li>
+    <li><a href="merch.html">Merch</a></li>
+    <li><a href="donate_9.html">Donate</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="signup_13.html" class="nav-btn">Join Us</a></li>
+   </ul>
+</nav>
+
+<main>
+
+  <section class="hero">
+    <p class="hero-eyebrow">Our Current Bible Study Series</p>
+    <h1 class="hero-title">God Must Really Love Me; He Gave Me the Holy Spirit</h1>
+    <p class="hero-verse">"But you will receive power when the Holy Spirit comes on you; and you will be my witnesses..." — Acts 1:8</p>
+    <div class="hero-cta-row">
+      <a href="mailto:christandcoffee25@gmail.com?subject=Bible%20Study%20Series%20-%20Holy%20Spirit" class="btn btn-primary">Interested? Email Us</a>
+      <a href="programs_events_7.html" class="btn btn-outline">Back to Programs &amp; Events</a>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="about-inner">
+      <p class="section-eyebrow">What We're Studying</p>
+      <h2 class="section-title">A Deep Dive Into the Gift of the Holy Spirit</h2>
+      <p class="about-text">This season, our Bible Study Series is exploring what it means that God didn't just save us and leave us on our own — He gave us the Holy Spirit to guide, comfort, convict, and empower us. Together we're digging into scripture, real-life application, and honest conversation about what it looks like to actually walk in the Spirit, day to day.</p>
+      <p class="about-text">This is a safe, honest, and welcoming space for women to grow in the Word together — no perfect answers required, just an open heart.</p>
+    </div>
+  </section>
+
+  <section class="details">
+    <div class="details-inner">
+      <div class="details-card">
+        <h2>Group Details</h2>
+        <ul class="details-list">
+          <li><i class="fa-solid fa-calendar"></i> Meets twice a month, running now through December</li>
+          <li><i class="fa-solid fa-book-bible"></i> Group discussion, scripture study, and real-life application</li>
+          <li><i class="fa-solid fa-lock"></i> Open to Christ and Coffee members and regular attendees</li>
+        </ul>
+        <p class="details-note">For everyone's safety and privacy, meeting times and locations aren't posted publicly. Email us below and a Christ and Coffee leader will get you connected with the group.</p>
+        <div class="details-actions">
+          <a href="mailto:christandcoffee25@gmail.com?subject=Bible%20Study%20Series%20-%20Holy%20Spirit" class="btn btn-primary">Email to Join</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-logo">Christ and Coffee</div>
+  <p class="footer-verse">"Rejoice in the Lord always. I will say it again: Rejoice!" — Philippians 4:4</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="christandcoffee_about_FIX.html">About</a>
+    <a href="programs_events_7.html">Programs &amp; Events</a>
+    <a href="the-network.html">The Network</a>
+    <a href="donate_9.html">Donate</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <p class="footer-copy">© 2025 Christ and Coffee LLC · Connecticut · All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
