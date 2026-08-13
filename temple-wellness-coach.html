@@ -213,7 +213,7 @@
   const imagePreview = document.getElementById('image-preview');
   const imagePreviewRemove = document.getElementById('image-preview-remove');
 
-  let passcode = sessionStorage.getItem('tw_passcode') || '';
+  let passcode = localStorage.getItem('tw_passcode') || '';
   let history = JSON.parse(localStorage.getItem('tw_chat_history') || '[]');
   let pendingImage = null; // { mediaType, base64 }
 
@@ -284,7 +284,7 @@
       }
       if (!res.ok) throw new Error('Server error');
       passcode = code;
-      sessionStorage.setItem('tw_passcode', code);
+      localStorage.setItem('tw_passcode', code);
       gate.style.display = 'none';
       chatWrap.style.display = 'flex';
       renderAllHistory();
@@ -365,7 +365,7 @@
       });
       hideTyping();
       if (res.status === 401) {
-        sessionStorage.removeItem('tw_passcode');
+        localStorage.removeItem('tw_passcode');
         chatWrap.style.display = 'none';
         gate.style.display = 'flex';
         gateError.textContent = 'Your session expired. Please re-enter the passcode.';
