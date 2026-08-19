@@ -170,12 +170,14 @@
     line-height: 1.8;
   }
   .give-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 24px;
     max-width: 900px;
     margin: 0 auto;
   }
+  .give-grid .give-card { width: 280px; }
   .give-card {
     background: var(--cream);
     border-radius: 4px;
@@ -374,17 +376,7 @@
       <a href="https://www.paypal.biz/christandcoffee" target="_blank" class="give-btn">Give via PayPal</a>
     </div>
 
-    <!-- Venmo -->
-    <div class="give-card">
-      <div style="margin-bottom:20px;">
-        <svg viewBox="0 0 24 24" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.983 1.64c.65 1.073.943 2.18.943 3.574 0 4.457-3.803 10.24-6.886 14.303H5.028L2 2.382l5.783-.541 1.56 12.503c1.457-2.441 3.26-6.29 3.26-8.914 0-1.435-.244-2.41-.65-3.222l6.03-.568z" fill="#008CFF"/>
-        </svg>
-      </div>
-      <h3 class="give-name">Venmo</h3>
-      <p class="give-handle">Search <strong>@ChristandCoffee</strong> or click below</p>
-      <a href="https://venmo.com/christandcoffee25" target="_blank" class="give-btn">Give via Venmo</a>
-    </div>
+    <!-- Venmo temporarily disabled while the account is being updated -->
 
   </div>
 
@@ -396,7 +388,6 @@
   <blockquote style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:var(--brown);margin:0 auto 40px;max-width:540px;line-height:1.7;">"Whoever sows sparingly will also reap sparingly, and whoever sows generously will also reap generously." — 2 Corinthians 9:6</blockquote>
   <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
     <a href="https://www.paypal.biz/christandcoffee" target="_blank" style="padding:14px 32px;background:var(--sage-dark);color:var(--cream);border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;">Give via PayPal</a>
-    <a href="https://venmo.com/christandcoffee25" target="_blank" style="padding:14px 32px;background:transparent;color:var(--sage-dark);border:2px solid var(--sage-dark);border-radius:50px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;">Give via Venmo</a>
   </div>
 </section>
 
