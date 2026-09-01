@@ -81,7 +81,7 @@
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--lime);
   }
   .program-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(74,94,74,0.2); }
-  .program-icon { font-size: 36px; margin-bottom: 20px; display: block; }
+  .program-icon { font-size: 36px; height: 90px; margin-bottom: 20px; display: flex; align-items: flex-end; justify-content: center; }
   .program-title { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--sage-dark); margin-bottom: 16px; font-style: italic; }
   .program-text { font-size: 13px; line-height: 1.9; color: rgba(44,44,44,0.7); font-weight: 300; margin-bottom: 28px; }
   .program-tag { display: inline-block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--brown); font-weight: 600; border: 1px solid rgba(123,79,46,0.4); padding: 5px 12px; border-radius: 50px; margin-bottom: 16px; }
@@ -247,42 +247,7 @@
 
     <div class="program-card">
       <span class="program-tag">Ongoing</span>
-      <span class="program-icon"><svg width="64" height="52" viewBox="0 0 64 52" xmlns="http://www.w3.org/2000/svg">
- <!-- Shadow -->
- <ellipse cx="32" cy="51" rx="26" ry="2.5" fill="#00000018"/>
- <!-- Left page -->
- <path d="M5 6 C5 4 7 3 9 3 L32 5 L32 47 L9 45 C7 45 5 43 5 41 Z" fill="#FAF7F0"/>
- <path d="M5 6 C5 4 7 3 9 3 L32 5 L32 47 L9 45 C7 45 5 43 5 41 Z" stroke="#C8BFA0" stroke-width="0.8"/>
- <!-- Right page -->
- <path d="M59 6 C59 4 57 3 55 3 L32 5 L32 47 L55 45 C57 45 59 43 59 41 Z" fill="#FAF7F0"/>
- <path d="M59 6 C59 4 57 3 55 3 L32 5 L32 47 L55 45 C57 45 59 43 59 41 Z" stroke="#C8BFA0" stroke-width="0.8"/>
- <!-- Page shadow center -->
- <rect x="29" y="3" width="6" height="44" fill="#E8E0C8" opacity="0.5"/>
- <!-- Spine -->
- <rect x="30" y="3" width="4" height="44" rx="1" fill="#7B4F2E"/>
- <!-- Left page lines -->
- <line x1="11" y1="13" x2="27" y2="13" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="11" y1="17" x2="27" y2="17" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="11" y1="21" x2="27" y2="21" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="11" y1="25" x2="27" y2="25" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="11" y1="29" x2="27" y2="29" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="11" y1="33" x2="23" y2="33" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <!-- Right page lines -->
- <line x1="37" y1="13" x2="53" y2="13" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="37" y1="17" x2="53" y2="17" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="37" y1="21" x2="53" y2="21" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="37" y1="25" x2="53" y2="25" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="37" y1="29" x2="53" y2="29" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <line x1="37" y1="33" x2="49" y2="33" stroke="#C8D8C8" stroke-width="1.2" stroke-linecap="round"/>
- <!-- Small cross right page -->
- <rect x="44" y="36" width="3" height="8" rx="0.8" fill="#7B4F2E" opacity="0.7"/>
- <rect x="41" y="38.5" width="9" height="3" rx="0.8" fill="#7B4F2E" opacity="0.7"/>
- <!-- Red bookmark -->
- <path d="M50 3 L50 19 L48 17 L46 19 L46 3 Z" fill="#C0392B" opacity="0.85"/>
- <!-- Cover peek at top -->
- <path d="M9 3 L32 3 L32 6 L9 6 Z" fill="#6B8F6B" opacity="0.2"/>
- <path d="M55 3 L32 3 L32 6 L55 6 Z" fill="#6B8F6B" opacity="0.2"/>
-</svg></span>
+      <span class="program-icon"><img src="bible.png" alt="The Bible" style="height:88px; width:auto; display:block;"></span>
       <h3 class="program-title">Bible Study Series</h3>
       <p class="program-text">Deep dive discussions into the Word of God. We study women of the Bible, books of scripture, and real life application — all in a safe, honest and welcoming space. Meetings twice monthly.</p>
       <a href="bible-study.html" class="program-btn">View Current Series</a>
@@ -290,7 +255,7 @@
 
     <div class="program-card">
       <span class="program-tag">6 Weeks</span>
-      <span class="program-icon">🌿</span>
+      <span class="program-icon"><img src="temple_wellness_icon.png" alt="Temple Wellness" style="height:88px; width:auto; display:block;"></span>
       <h3 class="program-title">Temple Wellness</h3>
       <p class="program-text">A 6-week faith based wellness program covering physical health, mental health, and nutrition. Because stewarding our bodies is an act of worship. — 1 Corinthians 6:19</p>
       <a href="temple-wellness.html" class="program-btn">Learn More</a>
@@ -298,7 +263,7 @@
 
     <div class="program-card">
       <span class="program-tag">Coming Soon</span>
-      <span class="program-icon">🎙️</span>
+      <span class="program-icon" style="font-size:68px;">🎙️</span>
       <h3 class="program-title">The Conversations</h3>
       <p class="program-text">Deeper conversations about faith, life, discipleship and everything in between. Our podcast is coming soon — real women, real faith, real talk. You don't want to miss it.</p>
       <a href="#" class="program-btn">Stay Tuned</a>
