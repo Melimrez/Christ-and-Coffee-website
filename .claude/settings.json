@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s https://christandcoffee.net/*)",
+      "Bash(curl -s \"https://christandcoffee.net/*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\n\" https://christandcoffee.net/*)",
+      "Bash(curl -s \"https://api.github.com/repos/Melimrez/Christ-and-Coffee-website/*)",
+      "mcp__Claude_Browser__read_page",
+      "mcp__Claude_Browser__get_page_text",
+      "mcp__Claude_Browser__find",
+      "mcp__Claude_Browser__preview_start",
+      "mcp__6d615118-7543-484e-9165-ed79587f7064__search_files"
+    ]
+  }
+}
