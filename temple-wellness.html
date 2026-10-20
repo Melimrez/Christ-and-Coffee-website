@@ -102,6 +102,10 @@
   .season-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 3vw, 32px); font-weight: 600; color: var(--sage-dark); margin-bottom: 14px; line-height: 1.2; }
   .season-desc { font-size: 15px; line-height: 1.75; opacity: 0.85; margin-bottom: 22px; }
   .season-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .tw-notify-form { display: flex; gap: 12px; flex-wrap: wrap; }
+  .tw-notify-input { flex: 1; min-width: 200px; background: transparent; border: 1.5px solid var(--sage-light); border-radius: 50px; padding: 14px 22px; font-family: 'Montserrat', sans-serif; font-size: 13px; color: var(--text-dark); outline: none; }
+  .tw-notify-input:focus { border-color: var(--sage); }
+  .tw-notify-btn { border: none; cursor: pointer; font-family: 'Montserrat', sans-serif; }
 
   @media (max-width: 640px) {
     .season-card { grid-template-columns: 1fr; }
@@ -175,7 +179,7 @@
     <h1 class="hero-title">Temple Wellness</h1>
     <p class="hero-verse">"Do you not know that your body is a temple of the Holy Spirit, who is in you, whom you have received from God?" — 1 Corinthians 6:19</p>
     <div class="hero-cta-row">
-      <a href="https://forms.gle/xEsPvW7VyVCjxz1k8" target="_blank" rel="noopener" class="btn btn-primary">Register for the New Season</a>
+      <a href="#season" class="btn btn-primary">Get Notified for 2027</a>
       <a href="#coach" class="btn btn-outline">Meet Your Wellness Coach</a>
     </div>
     <div class="hero-image-wrap">
@@ -209,24 +213,26 @@
     </div>
   </section>
 
-  <section class="season">
+  <section id="season" class="season">
     <div class="season-inner">
       <p class="section-eyebrow" style="text-align:center;">Don't Miss This One</p>
-      <h2 class="section-title" style="text-align:center;">A New Season is Here</h2>
+      <h2 class="section-title" style="text-align:center;">A New Season is Coming</h2>
       <div class="season-card">
         <div class="season-date">
-          <div class="season-date-num">10</div>
-          <div class="season-date-month">October</div>
+          <div class="season-date-num">2027</div>
+          <div class="season-date-month">Coming Soon</div>
         </div>
         <div>
-          <p class="season-eyebrow">Wellness Program · October 10, 2026</p>
+          <p class="season-eyebrow">Wellness Program · Coming Soon 2027</p>
           <h3 class="season-title">Temple Wellness: New Season — Strength through the Spirit</h3>
           <p class="season-desc">A six-week discipleship journey designed to help women honor God with their mind, body, and spirit through biblical truth, intentional stewardship, and authentic community.</p>
-          <p class="season-desc">Registration fee: <strong>$99</strong>. Fill out the form to register, then pay your fee via PayPal below.</p>
-          <div class="season-actions">
-            <a href="https://forms.gle/xEsPvW7VyVCjxz1k8" target="_blank" rel="noopener" class="btn btn-primary">Register Now</a>
-            <a href="https://www.paypal.com/ncp/payment/AZD844TASKDGA" target="_blank" rel="noopener" class="btn btn-outline">Pay Registration Fee via PayPal</a>
-          </div>
+          <p class="season-desc">Our next season opens in 2027. Leave your email and you'll be the first to know when registration opens.</p>
+          <form action="https://formspree.io/f/maqayzjv" method="POST" class="tw-notify-form">
+            <input type="hidden" name="_subject" value="Temple Wellness 2027 — Notify Me">
+            <input type="hidden" name="interest" value="Temple Wellness 2027">
+            <input type="email" name="email" class="tw-notify-input" placeholder="your@email.com" required>
+            <button type="submit" class="btn btn-primary tw-notify-btn">Notify Me</button>
+          </form>
         </div>
       </div>
     </div>
