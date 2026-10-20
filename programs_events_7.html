@@ -281,7 +281,7 @@
       <div class="featured-image">
         <div class="featured-date-big">2027</div>
         <div class="featured-month">Coming Soon</div>
-        <a href="https://forms.gle/xEsPvW7VyVCjxz1k8" target="_blank" rel="noopener" class="featured-badge">Registration Required</a>
+        <a href="#notify" class="featured-badge">Get Notified</a>
       </div>
       <div class="featured-content">
         <p class="featured-type">Wellness Program</p>
@@ -347,9 +347,9 @@
           <h3 class="event-title">Faith Walks</h3>
           <p class="event-desc">Lace up and show up. Faith Walks is where women gather outdoors to move their bodies, share their hearts, and walk closer with God — together.</p>
           <div class="event-meta">
-            <div class="event-meta-item">Summer / Fall 2026</div>
+            <div class="event-meta-item">Fall / Winter 2026</div>
             <div class="event-meta-item">Invite a friend!</div>
-            <div class="event-meta-item">Next walk: Sept 19</div>
+            <div class="event-meta-item">Next walk: TBA</div>
           </div>
         </div>
       </div>
@@ -403,13 +403,14 @@
 </section>
 
 <!-- NOTIFY -->
-<section class="notify">
+<section class="notify" id="notify">
   <h2 class="notify-title">Never Miss an Event</h2>
   <p class="notify-text">Subscribe to stay in the loop on upcoming meetups, programs, fundraisers and special gatherings. We'll bring Christ and Coffee right to your inbox.</p>
-  <div class="notify-form">
-    <input type="email" class="notify-input" placeholder="your@email.com">
-    <button class="notify-btn">Notify Me</button>
-  </div>
+  <form action="https://formspree.io/f/maqayzjv" method="POST" class="notify-form">
+    <input type="hidden" name="_subject" value="Notify me about Christ and Coffee events!">
+    <input type="email" name="email" class="notify-input" placeholder="your@email.com" required>
+    <button type="submit" class="notify-btn">Notify Me</button>
+  </form>
 </section>
 
 <!-- FOOTER -->
