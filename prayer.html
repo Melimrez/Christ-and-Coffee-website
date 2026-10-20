@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="theme-color" content="#4A5E4A">
+<title>Prayer Requests — Christ and Coffee</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  :root {
+    --sage: #6B8F6B;
+    --sage-dark: #4A5E4A;
+    --sage-light: #C8D8C8;
+    --cream: #FAF7F0;
+    --cream-alt: #F0EDE4;
+    --brown: #7B4F2E;
+    --brown-light: #C9A484;
+    --lime: #A8C84A;
+    --text-dark: #2C2C2C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Montserrat', sans-serif; background: var(--cream); color: var(--text-dark); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    background: var(--cream-alt); z-index: 100;
+    padding: 0 48px; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  }
+  .nav-logo { text-decoration: none; font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--sage-dark); letter-spacing: 1px; font-style: italic; }
+  .nav-logo span { color: var(--brown); }
+  .nav-links { display: flex; gap: 24px; list-style: none; }
+  .nav-links a { color: var(--sage-dark); text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; opacity: 0.9; transition: opacity 0.2s; }
+  .nav-links a:hover { opacity: 1; }
+  .nav-links a.active { opacity: 1; border-bottom: 1px solid var(--lime); padding-bottom: 2px; }
+  .nav-btn { background: var(--lime); color: var(--sage-dark) !important; padding: 10px 22px; border-radius: 50px; font-weight: 600 !important; opacity: 1 !important; }
+  .nav-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; background: none; border: none; cursor: pointer; padding: 0; z-index: 200; }
+  .nav-toggle span { display: block; width: 100%; height: 2px; background: var(--sage-dark); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+  .nav-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.active span:nth-child(2) { opacity: 0; }
+  .nav-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── HERO ── */
+  .page-hero {
+    background: var(--cream-alt); padding: 160px 48px 100px; text-align: center; position: relative; overflow: hidden;
+  }
+  .page-hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(168,200,74,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(123,79,46,0.08) 0%, transparent 50%);
+  }
+  .page-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--brown); font-weight: 600; margin-bottom: 20px; }
+  .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 7vw, 90px); font-weight: 600; color: var(--sage-dark); line-height: 1; margin-bottom: 24px; }
+  .page-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2vw, 24px); color: var(--sage-dark); opacity: 0.8; font-style: italic; font-weight: 300; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+  /* ── FORM SECTION ── */
+  .form-section {
+    background: var(--cream);
+    padding: 100px 48px;
+  }
+  .form-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .form-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .form-eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--brown); font-weight: 600; margin-bottom: 16px; }
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin-bottom: 16px;
+  }
+  .form-subtitle { font-size: 14px; color: #777; font-weight: 300; line-height: 1.8; max-width: 560px; margin: 0 auto; }
+
+  /* Form styles */
+  .form-group {
+    margin-bottom: 32px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--sage-light);
+    padding: 12px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--sage); }
+  .form-group textarea { resize: none; height: 100px; }
+  .form-group select { cursor: pointer; background: transparent; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  .form-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    margin: 48px 0 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--sage-light);
+    font-style: italic;
+  }
+
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+  .radio-option input[type="radio"],
+  .radio-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--sage-light);
+    border-radius: 50%;
+    appearance: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0;
+    transition: all 0.2s;
+    border-bottom: 2px solid var(--sage-light);
+  }
+  .radio-option input[type="checkbox"] { border-radius: 3px; }
+  .radio-option input[type="radio"]:checked,
+  .radio-option input[type="checkbox"]:checked {
+    background: var(--sage);
+    border-color: var(--sage);
+  }
+  .radio-option label {
+    font-size: 13px;
+    color: #555;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-transform: none;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .note {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--sage);
+    color: var(--cream);
+    border: none;
+    padding: 20px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 48px;
+  }
+  .submit-btn:hover { background: var(--sage-dark); }
+
+  .privacy-note {
+    text-align: center;
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .privacy-note a { color: var(--sage); text-decoration: underline; }
+
+  /* ── PRAYER EXTRAS ── */
+  .crisis-note {
+    background: var(--sage-light);
+    border-left: 4px solid var(--sage);
+    border-radius: 4px;
+    padding: 20px 28px;
+    margin-bottom: 48px;
+    font-size: 13px;
+    color: var(--sage-dark);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  .crisis-note a { color: var(--sage-dark); font-weight: 600; }
+  .form-group textarea.prayer-text { height: 160px; }
+  .hp { position: absolute; left: -9999px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--cream-alt); padding: 60px 48px 40px; text-align: center; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; color: var(--sage-dark); font-style: italic; margin-bottom: 24px; }
+  .footer-verse { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-style: italic; color: var(--sage-dark); margin-bottom: 32px; font-weight: 600; opacity: 0.95; }
+  .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(74,94,74,0.65); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--sage-dark); }
+  .footer-socials { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; }
+  .social-icon { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(74,94,74,0.25); display: flex; align-items: center; justify-content: center; color: var(--sage-dark); font-size: 14px; text-decoration: none; transition: all 0.2s; }
+  .social-icon:hover { border-color: var(--lime); color: var(--lime); }
+  .footer-email { font-size: 13px; color: rgba(74,94,74,0.6); margin-bottom: 8px; }
+  .footer-copy { font-size: 11px; color: rgba(74,94,74,0.45); letter-spacing: 1px; }
+  .footer-legal { margin-top: 16px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+  .footer-legal a { color: rgba(74,94,74,0.5); font-size: 10px; letter-spacing: 1px; text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
+  .footer-legal a:hover { color: rgba(74,94,74,0.9); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-toggle { display: flex; }
+    .nav-links { position: fixed; top: 72px; left: 0; right: 0; background: var(--cream-alt); flex-direction: column; gap: 0; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
+    .nav-links.open { max-height: 500px; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: 16px 24px; width: 100%; opacity: 1; }
+    .nav-btn { display: inline-block; margin: 4px 24px 16px; text-align: center; }
+
+    .page-hero { padding: 120px 24px 70px; }
+    .form-section { padding: 60px 24px; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+
+    footer { padding: 48px 24px 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Christ and C<span class="nav-logo-o">o</span>ffee</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open'); this.classList.toggle('active');">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="christandcoffee_about_FIX.html">About</a></li>
+    <li><a href="programs_events_7.html">Programs &amp; Events</a></li>
+    <li><a href="temple-wellness.html">Temple Wellness</a></li>
+    <li><a href="merch.html">Merch</a></li>
+    <li><a href="prayer.html" class="active">Prayer</a></li>
+    <li><a href="donate_9.html">Donate</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li><a href="signup_13.html" class="nav-btn">Join Us</a></li>
+   </ul>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <p class="page-eyebrow">You Don't Have to Carry It Alone</p>
+  <h1 class="page-title">Need Prayer?</h1>
+  <p class="page-subtitle">Whatever you're walking through, big or small, we would be honored to pray with you and for you.<br>
+   "Cast all your anxiety on Him because He cares for you." — 1 Peter 5:7</p>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="form-inner">
+    <div class="form-header">
+      <p class="form-eyebrow">Prayer Request</p>
+      <h2 class="form-title">How Can We Pray For You?</h2>
+      <p class="form-subtitle">Share as much or as little as you'd like. Every request is read personally and lifted up in prayer.</p>
+    </div>
+
+    <div class="crisis-note">
+      <strong>If you are in crisis or in danger right now,</strong> please don't wait on this form. Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) or call <a href="tel:911">911</a>.
+    </div>
+
+    <form action="https://formspree.io/f/maqayzjv" method="POST">
+      <input type="hidden" name="_subject" value="New Prayer Request — Christ and Coffee">
+      <input type="hidden" name="form" value="Prayer Request">
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="First name is fine">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="hello@email.com">
+          <p class="note">Optional — only if you'd like us to follow up.</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="checkbox" id="anonymous" name="anonymous" value="Yes">
+            <label for="anonymous">I'd like to stay anonymous</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="request">Your Prayer Request</label>
+        <textarea id="request" name="prayer_request" class="prayer-text" placeholder="What's on your heart?" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Who May See This Request?</label>
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="radio" id="share-private" name="sharing" value="Keep private — Melissa only" checked>
+            <label for="share-private">Keep this private — just between me and Melissa</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="share-team" name="sharing" value="OK to share with the prayer team">
+            <label for="share-team">It's okay to share with the Christ and Coffee prayer team</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="radio-group">
+          <div class="radio-option">
+            <input type="checkbox" id="followup" name="follow_up" value="Yes, please reach out">
+            <label for="followup">I'd love for someone to reach out to me</label>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">Send My Prayer Request</button>
+      <p class="privacy-note">Your request is kept confidential and will never be posted publicly.<br>See our <a href="privacy_1.html">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Christ and Coffee</div>
+  <p class="footer-verse">"I press toward the goal for the prize of the upward call of God in Christ Jesus." — Philippians 3:14</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="christandcoffee_about_FIX.html">About</a>
+    <a href="programs_events_7.html">Programs & Events</a>
+    <a href="merch.html">Merch</a>
+    <a href="prayer.html">Prayer</a>
+    <a href="donate_9.html">Donate</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <div class="footer-socials">
+    <a href="https://www.instagram.com/_christandcoffee/" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/@ChristandCoffeetheconversation" target="_blank" rel="noopener" class="social-icon"><i class="fab fa-youtube"></i></a>
+  </div>
+  <p class="footer-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acc4c9c0c0c3eccfc4dec5dfd8cdc2c8cfc3cacac9c982c2c9d8">[email&#160;protected]</a></p>
+  <p class="footer-copy">© 2025 Christ and Coffee LLC · Connecticut · All Rights Reserved</p>
+  <div class="footer-legal">
+    <a href="privacy_1.html">Privacy Policy</a>
+    <a href="accessibility.html">Accessibility</a>
+  </div>
+</footer>
+
+</body>
+</html>
